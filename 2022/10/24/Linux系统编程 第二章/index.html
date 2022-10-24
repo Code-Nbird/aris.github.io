@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zn,en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Linux系统编程 第二章 - aaaris&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Linux系统编程 第二章 - aaaris&#39;s blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://aaaris.github.io/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2022-10-24T12:46:05.767Z" />
+  
+  <meta property="og:article:author" content="aaaris" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">aaaris&#39;s blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/aaaris" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>24,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Linux系统编程 第二章</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>[TOC]</p>
+<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第二章-文件-I-x2F-O"><a href="#第二章-文件-I-x2F-O" class="headerlink" title="第二章 文件 I&#x2F;O"></a>第二章 文件 I&#x2F;O</h2><p>内核为每个进程维护 file table，该表由一些称作 file descriptors 的非负整数进行索引。</p>
+<p>子进程默认会获得一份父进程的文件表拷贝。</p>
+<p>每个进程按照惯例会至少有三个打开的文件描述符：0，1 和 2，即 stdin、stdout、stderr。</p>
+<blockquote>
+<p>一切皆文件，任何能读写的东西都可以用文件描述符进行访问。</p>
+</blockquote>
+<h3 id="2-1-打开文件"><a href="#2-1-打开文件" class="headerlink" title="2.1 打开文件"></a>2.1 打开文件</h3><h4 id="2-1-1-open-系统调用"><a href="#2-1-1-open-系统调用" class="headerlink" title="2.1.1 open() 系统调用"></a>2.1.1 open() 系统调用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* name, <span class="type">int</span> flags)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *name, <span class="type">int</span> flags, <span class="type">mode_t</span> mode)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-1-1-open-的-flags-参数"><a href="#2-1-1-1-open-的-flags-参数" class="headerlink" title="2.1.1.1 open() 的 flags 参数"></a>2.1.1.1 open() 的 flags 参数</h4><p>必须包含以下之一 O_RDONLY | O_WRONLY | O_RDWR</p>
+<h4 id="2-1-2-新文件所有者"><a href="#2-1-2-新文件所有者" class="headerlink" title="2.1.2 新文件所有者"></a>2.1.2 新文件所有者</h4><p>文件所有者的用户 id 就是创建该文件的进程的有效用户 id</p>
+<blockquote>
+<p>大多数 Linux 系统会采纳系统 V 的做法（新文件得到创建进程的组 ID），而保留 BSD 做法（新文件得到上级目录 id）</p>
+</blockquote>
+<h4 id="2-1-3-新文件权限"><a href="#2-1-3-新文件权限" class="headerlink" title="2.1.3 新文件权限"></a>2.1.3 新文件权限</h4><p>当文件创建时，mode 参数提供新建文件的权限。</p>
+<blockquote>
+<p>实际上，最终写入磁盘的权限位由 mode 参数与 umask 进行按位与后确定。</p>
+<p>umask 022 将使 mode 0666 变为 0644(0666 &amp; ~022)</p>
+</blockquote>
+<h4 id="2-1-4-creat-函数"><a href="#2-1-4-creat-函数" class="headerlink" title="2.1.4 creat() 函数"></a>2.1.4 creat() 函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">creat</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *name, <span class="type">mode_t</span> mode)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>大部分 Linux 架构上，creat() 是一个系统调用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">creat</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *name, <span class="type">int</span> mode)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">return</span> open (name, O_WRONLY | O_CREAT | </span><br><span class="line">                O_TRUNC, mode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-5-返回值和错误码"><a href="#2-1-5-返回值和错误码" class="headerlink" title="2.1.5 返回值和错误码"></a>2.1.5 返回值和错误码</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">成功</th>
+<th align="center">错误</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">返回</td>
+<td align="center">文件描述符</td>
+<td align="center">-1</td>
+</tr>
+<tr>
+<td align="center">errno</td>
+<td align="center">&#x2F;</td>
+<td align="center">设置</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-用-read-读取文件"><a href="#2-2-用-read-读取文件" class="headerlink" title="2.2 用 read() 读取文件"></a>2.2 用 read() 读取文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">read</span> <span class="params">(<span class="type">int</span> fd, <span class="type">void</span> *buf, <span class="type">size_t</span> len)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该系统调用从 fd 指向的文件的当前偏移量至多读 len 个字节到 buf 中。</p>
+<h4 id="2-2-1-返回值"><a href="#2-2-1-返回值" class="headerlink" title="2.2.1 返回值"></a>2.2.1 返回值</h4><p>成功时，将返回写入 buf 中的字节数。出错时返回 -1，并设置 errno。</p>
+<h4 id="2-2-2-读入所有的字节"><a href="#2-2-2-读入所有的字节" class="headerlink" title="2.2.2 读入所有的字节"></a>2.2.2 读入所有的字节</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ssize_t</span> ret;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (len != <span class="number">0</span> &amp;&amp; (ret = read (fd, buf, len)) != <span class="number">0</span>) &#123;</span><br><span class="line"> <span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (errno == EINTR)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">       perror(<span class="string">&quot;read&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    len -= ret;</span><br><span class="line">    buf += ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-非阻塞读"><a href="#2-2-3-非阻塞读" class="headerlink" title="2.2.3 非阻塞读"></a>2.2.3 非阻塞读</h4><p>如果给出的文件描述符在非阻塞模式下打开且没有可读数据，read() 调用会返回 -1，且设置 errno 为 EAGAIN</p>
+<blockquote>
+<p>open() 中给定 O_NONBLOCK，在非阻塞模式下打开文件</p>
+</blockquote>
+<h4 id="2-2-4-其他错误码"><a href="#2-2-4-其他错误码" class="headerlink" title="2.2.4 其他错误码"></a>2.2.4 其他错误码</h4><h4 id="2-2-5-read-大小限制"><a href="#2-2-5-read-大小限制" class="headerlink" title="2.2.5 read() 大小限制"></a>2.2.5 read() 大小限制</h4><p>ssize_t 类型是有符号的 size_t 类型（负值用来表示错误）。</p>
+<p>size_t 的最大值为 SIZE_MAX；size_t 的最大值为 SSIZE_MAX。</p>
+<blockquote>
+<p>在 32 位系统上，对应的 C 类型一般分别是 unsigned int 和 int。</p>
+</blockquote>
+<h3 id="2-3-用-write-来写"><a href="#2-3-用-write-来写" class="headerlink" title="2.3 用 write() 来写"></a>2.3 用 write() 来写</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">write</span> <span class="params">(<span class="type">int</span> fd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> count)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该系统调用从文件描述符 fd 引用文件的当前位置开始，将 buf 中至多 count 个字节写入文件中。</p>
+<p>成功时，返回写入字节数，并更新文件位置。错误时，返回 -1，设置 errno。</p>
+<h4 id="2-3-1-部分写"><a href="#2-3-1-部分写" class="headerlink" title="2.3.1 部分写"></a>2.3.1 部分写</h4><p>对于普通文件，除非发生错误，否则 write() 将保证写入所有的请求。</p>
+<blockquote>
+<p>对于其他类型——例如套接字——可以使用循环来保证写入完全。</p>
+<p>代码参考 read()</p>
+</blockquote>
+<h4 id="2-3-2-追加模式"><a href="#2-3-2-追加模式" class="headerlink" title="2.3.2 追加模式"></a>2.3.2 追加模式</h4><p>当 fd 在追加模式打开（通过指定 O_APPEND 参数），写操作从当前文件末尾开始。</p>
+<blockquote>
+<p>追加模式避免了多进程同时写的竞争问题。</p>
+</blockquote>
+<h4 id="2-3-3-非阻塞写"><a href="#2-3-3-非阻塞写" class="headerlink" title="2.3.3 非阻塞写"></a>2.3.3 非阻塞写</h4><p>当 fd 在非阻塞模式打开（通过指定 O_NONBLOCK 参数），写操作产生阻塞时，</p>
+<p>write() 系统调用返回 -1，并设置 errno 值为 EAGAIN。</p>
+<h4 id="2-3-4-其他错误码"><a href="#2-3-4-其他错误码" class="headerlink" title="2.3.4 其他错误码"></a>2.3.4 其他错误码</h4><h4 id="2-3-5-write-大小限制"><a href="#2-3-5-write-大小限制" class="headerlink" title="2.3.5 write() 大小限制"></a>2.3.5 write() 大小限制</h4><p>count &lt;&#x3D; SSIZE_MAX</p>
+<h4 id="2-3-6-write-的行为"><a href="#2-3-6-write-的行为" class="headerlink" title="2.3.6 write() 的行为"></a>2.3.6 write() 的行为</h4><p>异步 I&#x2F;O：write() -&gt; Linux 内核检查 -&gt; 数据拷贝至缓冲区 -&gt; 内核收集缓冲区并排序，写入磁盘（回写）</p>
+<blockquote>
+<p>为保证数据适时写入，内核创立了一种缓存最大时效机制。</p>
+<p>用户可以通过 &#x2F;proc&#x2F;sys&#x2F;vm&#x2F;dirty_expire_centiseconds 来配置该值。</p>
+</blockquote>
+<h3 id="2-4-同步-I-x2F-O"><a href="#2-4-同步-I-x2F-O" class="headerlink" title="2.4 同步 I&#x2F;O"></a>2.4 同步 I&#x2F;O</h3><h4 id="2-4-1-fsync-和-fdatasync"><a href="#2-4-1-fsync-和-fdatasync" class="headerlink" title="2.4.1 fsync() 和 fdatasync()"></a>2.4.1 fsync() 和 fdatasync()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">fsync</span> <span class="params">(<span class="type">int</span> fd)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该调用回写数据以及建立的时间戳和 inode 中的其他属性等元数据。</p>
+<p>fd 必须是以写方式打开的。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fdatasync</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>工作与 fsync() 类似，区别在于它仅写入数据，不保证元数据同步到磁盘上。</p>
+<h4 id="2-4-2-返回值和错误码"><a href="#2-4-2-返回值和错误码" class="headerlink" title="2.4.2 返回值和错误码"></a>2.4.2 返回值和错误码</h4><table>
+<thead>
+<tr>
+<th align="center">errno</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">EBADF</td>
+<td align="center">fd 非法</td>
+</tr>
+<tr>
+<td align="center">EINVAL</td>
+<td align="center">fd 对象不支持同步</td>
+</tr>
+<tr>
+<td align="center">EIO</td>
+<td align="center">底层 I&#x2F;O 错误</td>
+</tr>
+</tbody></table>
+<h4 id="2-4-3-sync"><a href="#2-4-3-sync" class="headerlink" title="2.4.3 sync()"></a>2.4.3 sync()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">sync</span><span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>调用总是成功返回，并确保所有的缓冲——包括数据和元数据——都能写入磁盘*。（磁盘可能撒谎）</p>
+<blockquote>
+<p>对于Linux 来讲，sync() 一定要等到所有的缓冲区都写入才返回。</p>
+<p>因此，调用一次 sync() 就够了。</p>
+</blockquote>
+<h4 id="2-4-4-O-SYNC-标志"><a href="#2-4-4-O-SYNC-标志" class="headerlink" title="2.4.4 O_SYNC 标志"></a>2.4.4 O_SYNC 标志</h4><p>O_SYNC 标志在 open() 中使用，使所有在文件上的 I&#x2F;O 操作同步。（针对写操作，读操作总是同步的）</p>
+<p>O_SYNC 看起来就像在每个 write() 操作后都隐式执行 fsync()，但 Linux 内核实现的 O_SYNC 会更有效一点。</p>
+<blockquote>
+<p>O_SYNC 会使写操作总耗时增加一到两个数量级。</p>
+<p>一般情况下，使用 fsync() 或者 fdatasync() 开销更少。</p>
+</blockquote>
+<h4 id="2-4-5-O-DSYNC-和-O-RSYNC"><a href="#2-4-5-O-DSYNC-和-O-RSYNC" class="headerlink" title="2.4.5 O_DSYNC 和 O_RSYNC"></a>2.4.5 O_DSYNC 和 O_RSYNC</h4><p>O_DSYNC ：指定在每次写操作后只有普通数据同步。</p>
+<p>O_RSYNC ：要求读请求像写请求那样进行同步，配合 O_DSYNC 或 O_SYNC 一起使用</p>
+<h3 id="2-5-直接-I-x2F-O"><a href="#2-5-直接-I-x2F-O" class="headerlink" title="2.5 直接 I&#x2F;O"></a>2.5 直接 I&#x2F;O</h3><p>在 open() 中使用 O_DIRECT 标志会使内核最小化 I&#x2F;O 管理的影响。</p>
+<blockquote>
+<p>当使用直接 I&#x2F;O 时，请求长度，缓冲区对齐，和文件偏移必须是设备扇区大小的整数倍。</p>
+</blockquote>
+<h3 id="2-6-关闭文件"><a href="#2-6-关闭文件" class="headerlink" title="2.6 关闭文件"></a>2.6 关闭文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">close</span> <span class="params">(<span class="type">int</span> fd)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>close() 调用解除 fd 关联，并分离进程和文件的关联。</p>
+<p>成功返回 0，错误时返回 -1 并设置 errno。</p>
+<blockquote>
+<p>如果文件已经在磁盘上解除链接，但之前仍保持打开，那么它在 close() 之前不会被真的删除。</p>
+<p>因此，对 close() 的调用可能会使某个已解除链接的文件最终从磁盘上被删除。</p>
+</blockquote>
+<h4 id="2-6-1-错误码"><a href="#2-6-1-错误码" class="headerlink" title="2.6.1 错误码"></a>2.6.1 错误码</h4><p>EBADF\EIO</p>
+<h3 id="2-7-用-lseek-查找"><a href="#2-7-用-lseek-查找" class="headerlink" title="2.7 用 lseek() 查找"></a>2.7 用 lseek() 查找</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">off_t</span> <span class="title function_">lseek</span><span class="params">(<span class="type">int</span> fd, <span class="type">off_t</span> pos, <span class="type">int</span> origin)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>lseek() 能给 fd 引用的文件位置设定指定值。</p>
+<p>调用成功返回新文件位置，错位返回 -1 并设置 errno。</p>
+<h4 id="2-7-1-文件末尾之后进行查找"><a href="#2-7-1-文件末尾之后进行查找" class="headerlink" title="2.7.1 文件末尾之后进行查找"></a>2.7.1 文件末尾之后进行查找</h4><p>读操作：返回 EOF</p>
+<p>写操作：在新旧长度之间进行零填充（空洞）</p>
+<blockquote>
+<p>空洞不占用任何物理上的磁盘空间。</p>
+<p>带空洞的文件叫做“稀疏文件“。</p>
+</blockquote>
+<h4 id="2-7-2-错误码"><a href="#2-7-2-错误码" class="headerlink" title="2.7.2 错误码"></a>2.7.2 错误码</h4><h4 id="2-7-3-限制"><a href="#2-7-3-限制" class="headerlink" title="2.7.3 限制"></a>2.7.3 限制</h4><p>Linux 定义 off_t 为字长，内核将偏移量存储为 C 的 long long 类型。</p>
+<blockquote>
+<p>32 位机器上查找可能产生 EOVERFLOW 错误。</p>
+</blockquote>
+<h3 id="2-8-定位读写"><a href="#2-8-定位读写" class="headerlink" title="2.8 定位读写"></a>2.8 定位读写</h3><p>Linux 提供 pread() 和 pwrite() 来替代 lseek()。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 500</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">pread</span> <span class="params">(<span class="type">int</span> fd, <span class="type">void</span> *buf, <span class="type">size_t</span> count, <span class="type">off_t</span> pos)</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 500</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">ssize_t</span> <span class="title function_">pwrite</span> <span class="params">(<span class="type">int</span> fd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> count, <span class="type">off_t</span> pos)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在调用完成时，他们不会修改文件位置。</p>
+<p>如此，避免了任何在使用 lseek() 时可能出现的潜在竞争（线程）。</p>
+</blockquote>
+<h4 id="2-8-1-错误码"><a href="#2-8-1-错误码" class="headerlink" title="2.8.1 错误码"></a>2.8.1 错误码</h4><h3 id="2-9截短文件"><a href="#2-9截短文件" class="headerlink" title="2.9截短文件"></a>2.9截短文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">ftruncate</span> <span class="params">(<span class="type">int</span> fd, <span class="type">off_t</span> len)</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">truncate</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *path, <span class="type">off_t</span> len)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>两个系统调用都将文件截短到 len 指定的长度。</p>
+<p>成功返回 0，错误返回 -1，并设置 errno。</p>
+<blockquote>
+<p>他们也将文件”截短“到比原长度更长，扩展出的字节将全部填充为零。</p>
+</blockquote>
+<h3 id="2-10-I-x2F-O-多路复用"><a href="#2-10-I-x2F-O-多路复用" class="headerlink" title="2.10 I&#x2F;O 多路复用"></a>2.10 I&#x2F;O 多路复用</h3><p>I&#x2F;O 多路复用允许应用在多个文件描述符上同时阻塞，并在其中某个可以读写时收到通知。</p>
+<blockquote>
+<p>Linux 提供三种 I&#x2F;O 多路复用方案：select, poll 和 epoll。</p>
+</blockquote>
+<h4 id="2-10-1-select"><a href="#2-10-1-select" class="headerlink" title="2.10.1 select()"></a>2.10.1 select()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">select</span> <span class="params">(<span class="type">int</span> n, </span></span><br><span class="line"><span class="params">            fd_set *readfds,</span></span><br><span class="line"><span class="params">            fd_set *writefds,</span></span><br><span class="line"><span class="params">            fd_set *exceptfds,</span></span><br><span class="line"><span class="params">            <span class="keyword">struct</span> timeval *timeout)</span>;</span><br><span class="line"></span><br><span class="line">FD_CLR(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>); <span class="comment">/* oops, remove &#x27;fd&#x27; from the set */</span></span><br><span class="line">FD_ISSET(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>); <span class="comment">/* &#x27;fd&#x27; is readable without blocking! */</span></span><br><span class="line">FD_SET(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>); <span class="comment">/* &#x27;add &#x27;fd&#x27; to the set */</span></span><br><span class="line">FD_ZERO(fd_set *<span class="built_in">set</span>);   <span class="comment">/* remove all fd from the set */</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>指定的集合可能为 NULL，相应的，select() 则不对此类时间进行监视。</p>
+</blockquote>
+<p>如果没有文件描述符处于 I&#x2F;O 就绪状态，select() 调用将在 tv_sec 秒 tv_usec 微秒后返回，每次调用前都必须重新初始化（还有集合中的文件描述符）。</p>
+<h4 id="2-10-2-返回值和错误码"><a href="#2-10-2-返回值和错误码" class="headerlink" title="2.10.2 返回值和错误码"></a>2.10.2 返回值和错误码</h4><p>成功时，返回三个集合中 I&#x2F;O 就绪的文件描述符的数目；错误时返回-1，设置 errno 。</p>
+<h5 id="2-10-2-1-select-示例程序"><a href="#2-10-2-1-select-示例程序" class="headerlink" title="2.10.2.1 select() 示例程序"></a>2.10.2.1 select() 示例程序</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIMEOUT 5 <span class="comment">/* select timeout in seconds */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BUF_LEN 1024 <span class="comment">/* read buffer in bytes */</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    strcut timeval v;</span><br><span class="line">    fd_set readfds;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="comment">/* Wait on stdin for input. */</span></span><br><span class="line">    FD_ZERO(&amp;readfds);</span><br><span class="line">    FD_SET(STDIN_FILENO, &amp;readfds);</span><br><span class="line">    <span class="comment">/* Wait up to five seconds. */</span></span><br><span class="line">    tv.tv_sec = TIMEOUT;</span><br><span class="line">    tv.tv_usec = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/* All right, now block! */</span></span><br><span class="line">    ret = select (STDIN_FILENO + <span class="number">1</span>,</span><br><span class="line">                  &amp;readfds,</span><br><span class="line">                  <span class="literal">NULL</span>,</span><br><span class="line">                  <span class="literal">NULL</span>,</span><br><span class="line">                  &amp;tv);</span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">        perror (<span class="string">&quot;select&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!ret) &#123;</span><br><span class="line">        <span class="built_in">printf</span> (<span class="string">&quot;%d seconds elapsed.\n&quot;</span>, TIMEOUT);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Is our file descriptor ready to read?</span></span><br><span class="line"><span class="comment">     * (It must be, as it was the only fd that</span></span><br><span class="line"><span class="comment">     * we provided and the call returned</span></span><br><span class="line"><span class="comment">     * nonzero, but we will humor ourselves.)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (FD_ISSET(STDIN_FILENO, &amp;readfds)) &#123;</span><br><span class="line">     <span class="type">char</span> buf[BUF_LEN + <span class="number">1</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="comment">/* guaranteed to not block */</span></span><br><span class="line">        len = read (STDIN_FILENO, buf, BUF_LEN);</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">-1</span>) &#123;</span><br><span class="line">            perror (<span class="string">&quot;read&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len) &#123;</span><br><span class="line">            buf[len] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            <span class="built_in">printf</span> (<span class="string">&quot;read: %s\n&quot;</span>, buf);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">&quot;This should not happen!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-10-2-2-用-select-实现可移植的sleep"><a href="#2-10-2-2-用-select-实现可移植的sleep" class="headerlink" title="2.10.2.2 用 select() 实现可移植的sleep()"></a>2.10.2.2 用 select() 实现可移植的sleep()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">tv</span>;</span></span><br><span class="line"></span><br><span class="line">tv.tv_sec = <span class="number">0</span>;</span><br><span class="line">tv.tv_userc = <span class="number">500</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* sleep for 500 microseconds */</span></span><br><span class="line">select (<span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;tv);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>select() 作为一种可移植的微秒级的睡眠机制。</p>
+</blockquote>
+<h5 id="2-10-2-3-pselect"><a href="#2-10-2-3-pselect" class="headerlink" title="2.10.2.3 pselect()"></a>2.10.2.3 pselect()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 600</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/select.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">pselect</span> <span class="params">(<span class="type">int</span> n,</span></span><br><span class="line"><span class="params">    fd_set *readfds,</span></span><br><span class="line"><span class="params">    fd_set *writefds,</span></span><br><span class="line"><span class="params">    fd_set *exceptfds,</span></span><br><span class="line"><span class="params">    <span class="type">const</span> <span class="keyword">struct</span> timespec *timeout,</span></span><br><span class="line"><span class="params">    <span class="type">const</span> <span class="type">sigset_t</span> *sigmask)</span>;</span><br><span class="line"></span><br><span class="line">FD_CLR(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>);</span><br><span class="line">FD_ISSET(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>);</span><br><span class="line">FD_SET(<span class="type">int</span> fd, fd_set *<span class="built_in">set</span>);</span><br><span class="line">FD_ZERO(fd_set *<span class="built_in">set</span>);</span><br></pre></td></tr></table></figure>
+
+<p>pselect() 和 select() 三点不同</p>
+<ul>
+<li><p>timeout 参数采用 timespec 结构，包含秒和纳秒。</p>
+</li>
+<li><p>timeout 参数后续不用重新初始化</p>
+</li>
+<li><p>增加 sigmask 参数，当该参数设置为零时，pselect() 的行为等同于 select()。</p>
+</li>
+</ul>
+<blockquote>
+<p>sigmask 参数用来解决信号和等待文件描述符之间的竞争条件。</p>
+</blockquote>
+<h4 id="2-10-3-poll"><a href="#2-10-3-poll" class="headerlink" title="2.10.3 poll()"></a>2.10.3 poll()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">poll</span> <span class="params">(<span class="keyword">struct</span> pollfd *fds, <span class="type">unsigned</span> <span class="type">int</span> nfds, <span class="type">int</span> timeout)</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-10-3-1-返回值和错误码"><a href="#2-10-3-1-返回值和错误码" class="headerlink" title="2.10.3.1 返回值和错误码"></a>2.10.3.1 返回值和错误码</h5><p>成功时返回具有非零 revent 字段的文件描述符个数。</p>
+<p>失败时返回 -1，errno 被设置。</p>
+<h5 id="2-10-3-2-poll-的例子"><a href="#2-10-3-2-poll-的例子" class="headerlink" title="2.10.3.2 poll() 的例子"></a>2.10.3.2 poll() 的例子</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TIMEOUT 5 <span class="comment">/* poll timeout, in seconds */</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> <span class="title">fds</span>[2];</span></span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* watch stdin for input */</span></span><br><span class="line">    fds[<span class="number">0</span>].fd = STDIN_FILENO;</span><br><span class="line">    fds[<span class="number">0</span>].events = POLLIN;</span><br><span class="line">    <span class="comment">/* watch stdout for ability to write (almost</span></span><br><span class="line"><span class="comment">       always true) */</span></span><br><span class="line">    fds[<span class="number">1</span>].fd = STDOUT_FILENO;</span><br><span class="line">    fds[<span class="number">1</span>].events = POLLLOUT;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* All set, block! */</span></span><br><span class="line">    ret = poll (fds, <span class="number">2</span>, TIMEOUT * <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">        perror (<span class="string">&quot;poll&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!ret) &#123;</span><br><span class="line">        <span class="built_in">printf</span> (<span class="string">&quot;%d seconds elapsed.\n&quot;</span>, TIMEOUT);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (fds[<span class="number">0</span>].revents &amp; POLLIN) </span><br><span class="line">        <span class="built_in">printf</span> (<span class="string">&quot;stdin is readable\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (fds[<span class="number">1</span>].revents &amp; POLLOUT)</span><br><span class="line">        <span class="built_in">printf</span> (<span class="string">&quot;stdout is writeable\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>无须重新构建 pollfd 结构体，必要时内核会把 revents 字段清空。</p>
+</blockquote>
+<h5 id="2-10-3-3-ppoll"><a href="#2-10-3-3-ppoll" class="headerlink" title="2.10.3.3 ppoll()"></a>2.10.3.3 ppoll()</h5><p>Linux 提供了一个 poll() 的近似调用—— ppoll()，timeout 参数和 sigmask 参数参考 pselect()。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">ppoll</span> <span class="params">(<span class="keyword">struct</span> pollfd *fds,</span></span><br><span class="line"><span class="params">           <span class="type">nfds_t</span> nfds,</span></span><br><span class="line"><span class="params">           <span class="type">const</span> <span class="keyword">struct</span> timespec *timeout,</span></span><br><span class="line"><span class="params">           <span class="type">const</span> <span class="type">sigset_t</span> *sigmask)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-10-4-poll-与-select"><a href="#2-10-4-poll-与-select" class="headerlink" title="2.10.4 poll() 与 select()"></a>2.10.4 poll() 与 select()</h4><ul>
+<li><p>poll() 在参数的处理更为方便。</p>
+<p>(不用重新创建 timeout、fds，fds 处理效率高，不用计算n）</p>
+</li>
+<li><p>select() 的可移植性更强。</p>
+</li>
+</ul>
+<blockquote>
+<p>epoll() 接口更好，一个 Linux 特有的 I&#x2F;O 多路复用解决方案</p>
+</blockquote>
+<h3 id="2-11-内核内幕"><a href="#2-11-内核内幕" class="headerlink" title="2.11 内核内幕"></a>2.11 内核内幕</h3><h4 id="2-11-1-虚拟文件系统"><a href="#2-11-1-虚拟文件系统" class="headerlink" title="2.11.1 虚拟文件系统"></a>2.11.1 虚拟文件系统</h4><p>virtual file switch 是一种 Linux 内核的文件操作的抽象机制。</p>
+<p>它允许内核在无需了解文件系统类型的情况下，使用文件系统函数和操作文件系统数据。</p>
+<p>VFS 工作于 inode, superblock 和目录条目之上。</p>
+<blockquote>
+<p>read() 系统调用 -&gt; 内核确认 fd 对象类型 -&gt; 内核调用该文件系统的 read()</p>
+</blockquote>
+<h4 id="2-11-2-页缓存"><a href="#2-11-2-页缓存" class="headerlink" title="2.11.2 页缓存"></a>2.11.2 页缓存</h4><p>页缓存是一种在内存中保存最近在磁盘文件系统上访问过的数据的方式。</p>
+<p>Linux 页缓存大小是动态的。一个动态变化的缓存允许 Linux 使用所有的系统内存，并缓存尽可能多的数据。</p>
+<blockquote>
+<p>页缓存是内核寻找文件系统数据的第一目的地。</p>
+</blockquote>
+<h4 id="2-11-3-页回写"><a href="#2-11-3-页回写" class="headerlink" title="2.11.3 页回写"></a>2.11.3 页回写</h4><p>回写由一些叫做 pdflush 的内核线程操作，且具有并行性。</p>
+<blockquote>
+<p>缓冲区在内核中使用 buffer_head 结构来表示，保存在页缓存中。</p>
+</blockquote>
+<h3 id="2-12-结论"><a href="#2-12-结论" class="headerlink" title="2.12 结论"></a>2.12 结论</h3>
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by aaaris, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Linux系统编程 第一章</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/aaaris" class="item">GitHub</a>
+                
+                <a href="2997600742@qq.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2022 aaaris<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
