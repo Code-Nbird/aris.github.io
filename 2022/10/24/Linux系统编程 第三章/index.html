@@ -150,15 +150,14 @@
     <div class="divider"></div>
 
     <div class="content">
-        <p>[TOC]</p>
-<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第三章-缓冲输入输出"><a href="#第三章-缓冲输入输出" class="headerlink" title="第三章 缓冲输入输出"></a>第三章 缓冲输入输出</h2><p>所有的磁盘操作都是基于块进行的。</p>
+        <h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第三章-缓冲输入输出"><a href="#第三章-缓冲输入输出" class="headerlink" title="第三章 缓冲输入输出"></a>第三章 缓冲输入输出</h2><p>所有的磁盘操作都是基于块进行的。</p>
 <p>块操作效率随着系统调用次数的增多而急剧下降。</p>
 <blockquote>
 <p>当请求以块大小整数倍对齐地址时，I&#x2F;O 效率时最理想的。</p>
 </blockquote>
 <h3 id="3-1-用户——缓冲-I-x2F-O"><a href="#3-1-用户——缓冲-I-x2F-O" class="headerlink" title="3.1 用户——缓冲 I&#x2F;O"></a>3.1 用户——缓冲 I&#x2F;O</h3><p>轻量级 I&#x2F;O 请求通常使用用户缓冲 I&#x2F;O 。</p>
 <p>用户缓冲 I&#x2F;O 在用户空间完成，它可以在程序中设定，也可以调用标准库透明地执行。</p>
-<p><img src="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221018231608120.png" alt="image-20221018231608120"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/aaaris/picture/img/image-20221018231608120.png" alt="image-20221018231608120"></p>
 <h4 id="3-1-1-块大小"><a href="#3-1-1-块大小" class="headerlink" title="3.1.1 块大小"></a>3.1.1 块大小</h4><p>实际应用中，块大小一般是512字节，1024字节，2048字节，或4096字节。</p>
 <blockquote>
 <p>使用用户缓冲 I&#x2F;O，使得程序能操作更小的单位并方便一次写出或读出。</p>

@@ -150,8 +150,7 @@
     <div class="divider"></div>
 
     <div class="content">
-        <p>[TOC]</p>
-<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第六章-高级进程管理"><a href="#第六章-高级进程管理" class="headerlink" title="第六章 高级进程管理"></a>第六章 高级进程管理</h2><h3 id="6-1-进程调度"><a href="#6-1-进程调度" class="headerlink" title="6.1 进程调度"></a>6.1 进程调度</h3><p>调度器：把有限的处理器资源分配给进程的内核子系统。</p>
+        <h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第六章-高级进程管理"><a href="#第六章-高级进程管理" class="headerlink" title="第六章 高级进程管理"></a>第六章 高级进程管理</h2><h3 id="6-1-进程调度"><a href="#6-1-进程调度" class="headerlink" title="6.1 进程调度"></a>6.1 进程调度</h3><p>调度器：把有限的处理器资源分配给进程的内核子系统。</p>
 <p>时间片：进程在被强占前所允许的时间称为进程时间片。</p>
 <p>Linux 实现了抢占式多任务操作系统——要求一个进程停止，处理器允许另一个。</p>
 <h4 id="6-1-1-大-O-计法"><a href="#6-1-1-大-O-计法" class="headerlink" title="6.1.1 大 O 计法"></a>6.1.1 大 O 计法</h4><p>Linux 调度器的实现算法是 O(1) 算法。</p>
@@ -269,7 +268,7 @@
 <li>RLIMIT_STACK 栈最大字节长度</li>
 </ul>
 <h5 id="6-6-1-1-默认限制"><a href="#6-6-1-1-默认限制" class="headerlink" title="6.6.1.1 默认限制"></a>6.6.1.1 默认限制</h5><p>约束变量：初始软限制，初始硬限制和系统管理员。</p>
-<p><img src="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%85%AD%E7%AB%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221022205344274.png" alt="image-20221022205344274"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/aaaris/picture/img/image-20221022205344274.png" alt="image-20221022205344274"></p>
 <h4 id="6-6-2-获取和设置资源限制"><a href="#6-6-2-获取和设置资源限制" class="headerlink" title="6.6.2 获取和设置资源限制"></a>6.6.2 获取和设置资源限制</h4><p>获取例子：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rlimit</span> <span class="title">rlim</span>;</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line"><span class="comment">/* get the limit on core sizes */</span></span><br><span class="line">ret = getrlimit (RLIMIT_CORE, &amp;rlim);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">    perror (<span class="string">&quot;getrlimit&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;RLIMIT_CORE limits: soft=%ld hard=%ld\n&quot;</span>, rlim.rlim_cur, rlim.rlim_max);</span><br></pre></td></tr></table></figure>
 

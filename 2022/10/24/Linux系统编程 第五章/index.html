@@ -150,8 +150,7 @@
     <div class="divider"></div>
 
     <div class="content">
-        <p>[TOC]</p>
-<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第五章-进程管理"><a href="#第五章-进程管理" class="headerlink" title="第五章 进程管理"></a>第五章 进程管理</h2><h3 id="5-1-进程-ID"><a href="#5-1-进程-ID" class="headerlink" title="5.1 进程 ID"></a>5.1 进程 ID</h3><p>进程由 pid 作为唯一标识。</p>
+        <h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第五章-进程管理"><a href="#第五章-进程管理" class="headerlink" title="第五章 进程管理"></a>第五章 进程管理</h2><h3 id="5-1-进程-ID"><a href="#5-1-进程-ID" class="headerlink" title="5.1 进程 ID"></a>5.1 进程 ID</h3><p>进程由 pid 作为唯一标识。</p>
 <p>init 是内核运行的第一个进程，pid 为 1。</p>
 <h4 id="5-1-1-分配进程-ID"><a href="#5-1-1-分配进程-ID" class="headerlink" title="5.1.1 分配进程 ID"></a>5.1.1 分配进程 ID</h4><p>缺省情况，PID 最大限制为 32768（16位，向下兼容）。</p>
 <p>内核分配 PID 是以严格的线性函数方式进行，保证同一时间 pid 的唯一性。</p>
@@ -352,7 +351,7 @@
 <p>当网络中断，向前台进程组所有进程发送 SIGHUP 信号。</p>
 <p>当用户敲入终止键，向前台进程的所有进程发送 SIGINT 信号。</p>
 </blockquote>
-<p><img src="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%BA%94%E7%AB%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221022114157944.png" alt="image-20221022114157944"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/aaaris/picture/img/image-20221022114157944.png" alt="image-20221022114157944"></p>
 <h4 id="5-6-1-与会话相关的系统调用"><a href="#5-6-1-与会话相关的系统调用" class="headerlink" title="5.6.1 与会话相关的系统调用"></a>5.6.1 与会话相关的系统调用</h4><p>如果进程不是某个进程组组长，调用 setsid() 会创建新会话，并创建新进程组。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">setsid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
 
