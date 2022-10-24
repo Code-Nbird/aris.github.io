@@ -308,6 +308,79 @@
 <p>VLAs 获得的内存在出了作用域后就释放，alloca() 直到函数返回才释放。</p>
 </blockquote>
 <h3 id="8-8-选择一个合适的内存分配机制"><a href="#8-8-选择一个合适的内存分配机制" class="headerlink" title="8.8 选择一个合适的内存分配机制"></a>8.8 选择一个合适的内存分配机制</h3><p><img src="https://cdn.jsdelivr.net/gh/aaaris/picture/img/image-20221024220400471.png"></p>
+<h3 id="8-9-存储器操作"><a href="#8-9-存储器操作" class="headerlink" title="8.9 存储器操作"></a>8.9 存储器操作</h3><h4 id="8-9-1-字节设置"><a href="#8-9-1-字节设置" class="headerlink" title="8.9.1 字节设置"></a>8.9.1 字节设置</h4><p>memset() 将从 s 指向区域开始的 n 个字节设置为 c，返回 s。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memset</span> <span class="params">(<span class="type">void</span> *s, <span class="type">int</span> c, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>memset() 常用于将一块内存清零。</p>
+<p>如果你可以使用 calloc() 分配内存那就坚决不用 memset()。</p>
+</blockquote>
+<h4 id="8-9-2-字节比较"><a href="#8-9-2-字节比较" class="headerlink" title="8.9.2 字节比较"></a>8.9.2 字节比较</h4><p>类似 strcmp()，memcmp() 比较两块内存是否相等：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">memcmp</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *s1, <span class="type">const</span> <span class="type">void</span> *s2, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-9-3-字节移动"><a href="#8-9-3-字节移动" class="headerlink" title="8.9.3 字节移动"></a>8.9.3 字节移动</h4><p>memmove() 复制 src 的前 n 字节到 dst，返回 dst：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memmove</span> <span class="params">(<span class="type">void</span> *dst, <span class="type">const</span> <span class="type">void</span> *src, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>memmove() 可以安全地处理内存区域重叠问题。</p>
+</blockquote>
+<p>例外，不支持内存覆盖的 memmove() 变种：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memcpy</span> <span class="params">(<span class="type">void</span> *dst, <span class="type">const</span> <span class="type">void</span> *src, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>另外一个安全复制函数是 memccpy()：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memccpy</span> <span class="params">(<span class="type">void</span> *dst, <span class="type">const</span> <span class="type">void</span> *src, <span class="type">int</span> c, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最后我们可以使用 mempcpy() 来跨过拷贝的内存：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">mempcpy</span> <span class="params">(<span class="type">void</span> *dst, <span class="type">const</span> <span class="type">void</span> *src, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mempcpy() 和 memcpy() 几乎一样，区别在于前者返回 dst + n。</p>
+</blockquote>
+<h4 id="8-9-4-字节搜索"><a href="#8-9-4-字节搜索" class="headerlink" title="8.9.4 字节搜索"></a>8.9.4 字节搜索</h4><p>函数 memchr() 和 memrchr() 可以在内存块中搜索一个给定的字节：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memchr</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *s, <span class="type">int</span> c, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>memrchr() 是<strong>反向</strong>搜索：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memrchr</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *s, <span class="type">int</span> c, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>对于复杂搜索，memmem() 函数可以在一块内存中搜索任意的字节数组：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memmem</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *haystack, <span class="type">size_t</span> haystacklen,</span></span><br><span class="line"><span class="params">                <span class="type">const</span> <span class="type">void</span> *needle, <span class="type">size_t</span> needlelen)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-9-5-字节加密"><a href="#8-9-5-字节加密" class="headerlink" title="8.9.5 字节加密"></a>8.9.5 字节加密</h4><p>简单加密接口（与 42 进行异或操作）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">memfrob</span> <span class="params">(<span class="type">void</span> *s, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-10-内存锁定"><a href="#8-10-内存锁定" class="headerlink" title="8.10 内存锁定"></a>8.10 内存锁定</h3><p>当虚拟内存页和实际页帧相“<strong>关联</strong>”，并保持该状态（称为<strong>锁定</strong>）。</p>
+<p>Linux 实现了请求页面调度：需要时才将页面从硬盘交换进来。</p>
+<blockquote>
+<p>进程的虚拟地址空间拥有近乎无限物理内存——由于页面调度，虚拟内存页未被锁定</p>
+</blockquote>
+<p>不考虑&#x3D;&#x3D;确定性，安全性&#x3D;&#x3D;的情况下，应用尽量不要改变内核的行为。</p>
+<h4 id="8-10-1-锁定部分地址空间"><a href="#8-10-1-锁定部分地址空间" class="headerlink" title="8.10.1 锁定部分地址空间"></a>8.10.1 锁定部分地址空间</h4><p>POSIX 指定 mlock() 函数锁定给定地址区间，保证不会被交换到磁盘：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">mlock</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *addr, <span class="type">size_t</span> len)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>POSIX 标准要求 addr 应该与页对齐。</p>
+</blockquote>
+<h4 id="8-10-2-锁定全部地址空间"><a href="#8-10-2-锁定全部地址空间" class="headerlink" title="8.10.2 锁定全部地址空间"></a>8.10.2 锁定全部地址空间</h4><p>POSIX 定义 mlockall() 函数在物理内存中锁定进程的全部地址空间。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">mlockall</span> <span class="params">(<span class="type">int</span> flags)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-10-3-内存解锁"><a href="#8-10-3-内存解锁" class="headerlink" title="8.10.3 内存解锁"></a>8.10.3 内存解锁</h4><p>POSIX 提供两个接口进行内存解锁：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">munlock</span> <span class="params">(<span class="type">const</span> <span class="type">void</span> *addr, <span class="type">size_t</span> len)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">munlockall</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>内存锁定并不会重叠。故mlock() 或 mlockall() 调用次数无需考虑，页面的解除只需一次。</p>
+</blockquote>
+<h4 id="8-10-4-锁定的限制"><a href="#8-10-4-锁定的限制" class="headerlink" title="8.10.4 锁定的限制"></a>8.10.4 锁定的限制</h4><p>CAP_IPC_LOCK 权限的进程能锁定任意多的页面。</p>
+<p>此外，进程最多锁定 RLIMIT_MEMLOCK 个字节。</p>
+<h4 id="8-10-5-这个页面在物理内存中吗？"><a href="#8-10-5-这个页面在物理内存中吗？" class="headerlink" title="8.10.5 这个页面在物理内存中吗？"></a>8.10.5 这个页面在物理内存中吗？</h4><p>Linux 提供 mincore() 方便调试：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/mman.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">mincore</span> <span class="params">(<span class="type">void</span> *start, <span class="type">size_t</span> length, <span class="type">unsigned</span> <span class="type">char</span> *vec)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-11-投机性存储分配策略"><a href="#8-11-投机性存储分配策略" class="headerlink" title="8.11 投机性存储分配策略"></a>8.11 投机性存储分配策略</h3><p>Linux 使用投机分配策略：</p>
+<ul>
+<li>当进程请求内存，内核做出分配承诺但未进行分配。</li>
+<li>仅当进程对“分配”内存写操作时，内核才真正进行分配。</li>
+</ul>
+<h4 id="8-11-1-超量使用和内存耗尽"><a href="#8-11-1-超量使用和内存耗尽" class="headerlink" title="8.11.1 超量使用和内存耗尽"></a>8.11.1 超量使用和内存耗尽</h4><p>超量使用：使用的内存仅仅是请求内存中进行写操作的页面大小。</p>
+<p>内存耗尽（OOM）：当超量使用导致内存不足，内核进行选择终止一个进程。</p>
 
     </div>
 
