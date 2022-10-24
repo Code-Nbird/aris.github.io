@@ -282,6 +282,32 @@
 <blockquote>
 <p>由于内存在栈中，当调用它的函数返回时，这块内存将被自动释放。</p>
 </blockquote>
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">open_sysconf</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *file, <span class="type">int</span> flags, <span class="type">int</span> mode)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> *etc = SYSCONF_DIR; <span class="comment">/* ”/etc/” */</span></span><br><span class="line">    <span class="type">char</span> *name;</span><br><span class="line">    name = alloca (<span class="built_in">strlen</span> (etc) + <span class="built_in">strlen</span> (file) +<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">strcpy</span> (name, etc);</span><br><span class="line">    <span class="built_in">strcat</span> (name, file);</span><br><span class="line">    <span class="keyword">return</span> open (name, flags, mode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不能将由 alloca() 得到的内存来作为一个函数调用的参数。</p>
+</blockquote>
+<h4 id="8-7-1-栈中的字符串"><a href="#8-7-1-栈中的字符串" class="headerlink" title="8.7.1 栈中的字符串"></a>8.7.1 栈中的字符串</h4><p>alloca() 常见的用法是用来临时复制一个字符串：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* we want to duplicate ’song’ */</span></span><br><span class="line"><span class="type">char</span> *dup;</span><br><span class="line">dup = alloca (<span class="built_in">strlen</span> (song) + <span class="number">1</span>);</span><br><span class="line"><span class="built_in">strcpy</span> (dup, song);</span><br><span class="line"><span class="comment">/* manipulate ’dup’... */</span></span><br><span class="line"><span class="keyword">return</span>; <span class="comment">/* ’dup’ is automatically freed */</span></span><br></pre></td></tr></table></figure>
+
+<p>由于 alloca() 高效，Linux 系统专门提供了 strdup() 来将给定字符串复制到栈中：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> * <span class="title function_">strdupa</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s)</span>;</span><br><span class="line"><span class="type">char</span> * <span class="title function_">strndupa</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s, <span class="type">size_t</span> n)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果考虑移植性，不鼓励使用这些函数。</p>
+<p>然而在 Linux 上，alloca() 及其衍生函数，通过移动栈指针替代复杂的动态分配内存方法，带来高效性能是很方便的。</p>
+</blockquote>
+<h4 id="8-7-2-变长数组"><a href="#8-7-2-变长数组" class="headerlink" title="8.7.2 变长数组"></a>8.7.2 变长数组</h4><p>C99 引进了变长数组（VLAs），其长度是在运行时决定的并非编译时。</p>
+<p>VLAs 用于 alloca() 相似的方法避免了动态存储分配所产生的负载。</p>
+<p>例子，利用变长数组，重写 open_sysconf() 函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">open_sysconf</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *file, <span class="type">int</span> flags, <span class="type">int</span> mode)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> *etc; = SYSCONF_DIR; <span class="comment">/* ”/etc/” */</span></span><br><span class="line">    <span class="type">char</span> name[<span class="built_in">strlen</span> (etc) + <span class="built_in">strlen</span> (file) + <span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span> (name, etc);</span><br><span class="line">    <span class="built_in">strcat</span> (name, file);</span><br><span class="line">    <span class="keyword">return</span> open (name, flags, mode);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>VLAs 和 alloca() 的区别在于内存的释放时间。 </p>
+<p>VLAs 获得的内存在出了作用域后就释放，alloca() 直到函数返回才释放。</p>
+</blockquote>
+<h3 id="8-8-选择一个合适的内存分配机制"><a href="#8-8-选择一个合适的内存分配机制" class="headerlink" title="8.8 选择一个合适的内存分配机制"></a>8.8 选择一个合适的内存分配机制</h3><p>![image-20221024220400471](&#x2F;imgs&#x2F;Linux系统编程 第八章&#x2F;image-20221024220400471.png)</p>
 
     </div>
 
