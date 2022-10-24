@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zn,en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Linux系统编程 第五章 - aaaris&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Linux系统编程 第五章 - aaaris&#39;s blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://aaaris.github.io/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%BA%94%E7%AB%A0/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2022-10-24T12:51:44.511Z" />
+  
+  <meta property="og:article:author" content="aaaris" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">aaaris&#39;s blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/aaaris" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>24,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Linux系统编程 第五章</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>[TOC]</p>
+<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第五章-进程管理"><a href="#第五章-进程管理" class="headerlink" title="第五章 进程管理"></a>第五章 进程管理</h2><h3 id="5-1-进程-ID"><a href="#5-1-进程-ID" class="headerlink" title="5.1 进程 ID"></a>5.1 进程 ID</h3><p>进程由 pid 作为唯一标识。</p>
+<p>init 是内核运行的第一个进程，pid 为 1。</p>
+<h4 id="5-1-1-分配进程-ID"><a href="#5-1-1-分配进程-ID" class="headerlink" title="5.1.1 分配进程 ID"></a>5.1.1 分配进程 ID</h4><p>缺省情况，PID 最大限制为 32768（16位，向下兼容）。</p>
+<p>内核分配 PID 是以严格的线性函数方式进行，保证同一时间 pid 的唯一性。</p>
+<h4 id="5-1-2-进程体系"><a href="#5-1-2-进程体系" class="headerlink" title="5.1.2 进程体系"></a>5.1.2 进程体系</h4><p>创建新进程的称为父进程，新进程称为子进程，ppid 表示父进程 pid。</p>
+<p>每个子进程都继承了父进程的用户和组，子进程通常属于其父进程所在的进程组便于通信。</p>
+<h4 id="5-1-3-pid-t"><a href="#5-1-3-pid-t" class="headerlink" title="5.1.3 pid_t"></a>5.1.3 pid_t</h4><p>定义在 &lt;sys&#x2F;types.h&gt; 中，在 Linux 中，通常是 C 语言的 int 类型。</p>
+<h4 id="5-1-4-获得进程-ID-和父进程-ID"><a href="#5-1-4-获得进程-ID-和父进程-ID" class="headerlink" title="5.1.4 获得进程 ID 和父进程 ID"></a>5.1.4 获得进程 ID 和父进程 ID</h4><p>getpid() 返回调用进程 ID。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">getpid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>getppid() 返回调用进程的父进程 ID。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">getppid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-运行新进程"><a href="#5-2-运行新进程" class="headerlink" title="5.2 运行新进程"></a>5.2 运行新进程</h3><p>exec()：载入内存并执行程序映像（运行一个新程序）。</p>
+<p>fork()：创建一个新进程。</p>
+<h4 id="5-2-1-exec-系列系统调用"><a href="#5-2-1-exec-系列系统调用" class="headerlink" title="5.2.1 exec 系列系统调用"></a>5.2.1 exec 系列系统调用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">execl</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *path, <span class="type">const</span> <span class="type">char</span> *arg, ...)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>execl() 调用将 path 所指路径的映像载入内存，替换当前进程的映像，arg 是第一个参数，省略号代表可变长度的参数列表，以 NULL 结尾。</p>
+<p>例子，如果你想编辑 &#x2F;home&#x2F;kidd&#x2F;hooks.txt：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = execl (<span class="string">&quot;/bin/vi&quot;</span>, <span class="string">&quot;vi&quot;</span>, <span class="string">&quot;/home/kidd/hooks.txt&quot;</span>, <span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>)</span><br><span class="line">	perror (<span class="string">&quot;execl&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通常 execl() 不会返回，调用会跳转到新程序入口作为结束。错误时返回 -1，并设置 errno。</p>
+<p>execl() 改变了进程的一些属性：</p>
+<ul>
+<li>挂起信号丢失。</li>
+<li>捕捉信号还原为缺省方式。</li>
+<li>内存的锁定（第八章）丢失。</li>
+<li>线程属性还原为缺省值。</li>
+<li>进程的统计信息复位。</li>
+<li>与内存相关数据都会丢失，包括映射文件。</li>
+</ul>
+<blockquote>
+<p>通常打开的文件描述符可以继承，但一般都在 exec 调用前关闭文件。</p>
+</blockquote>
+<h5 id="5-2-1-1-其他-exec-系列系统调用"><a href="#5-2-1-1-其他-exec-系列系统调用" class="headerlink" title="5.2.1.1 其他 exec 系列系统调用"></a>5.2.1.1 其他 exec 系列系统调用</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">execlp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *file, <span class="type">const</span> <span class="type">char</span> *arg, ...)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">execle</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *path, <span class="type">const</span> <span class="type">char</span> *arg, ..., <span class="type">char</span> * <span class="type">const</span> envp[])</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">execv</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *path, <span class="type">char</span> *<span class="type">const</span> argv[])</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">execvp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *file, <span class="type">char</span> *<span class="type">const</span> argv[])</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">execve</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *filename, <span class="type">char</span> *<span class="type">const</span> argv[], <span class="type">char</span> *<span class="type">const</span> envp[])</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字母 l 和 v 分别表示参数是以 list 或者 vector 方式提供的。</p>
+<p>字母 p 表示在用户的 PATH 环境变量中寻找可执行文件。</p>
+<p>最后的 e 表示会提供给新进程以新的环境变量。</p>
+</blockquote>
+<p>例子，使用 execvp() 来执行 vi：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span> *args[] = &#123; <span class="string">&quot;vi&quot;</span>, <span class="string">&quot;/home/kidd/hooks.txt&quot;</span>, <span class="literal">NULL</span> &#125;;</span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = execvp (<span class="string">&quot;vi&quot;</span>, args);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>)</span><br><span class="line">	perror (<span class="string">&quot;execvp&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-2-1-2-错误返回值"><a href="#5-2-1-2-错误返回值" class="headerlink" title="5.2.1.2 错误返回值"></a>5.2.1.2 错误返回值</h5><p>成功调用时，exec 不会返回，失败返回 -1，设置 errno</p>
+<h4 id="5-2-2-fork-系统调用"><a href="#5-2-2-fork-系统调用" class="headerlink" title="5.2.2 fork() 系统调用"></a>5.2.2 fork() 系统调用</h4><p>创建一个和当前进程映像一样的进程可以通过 fork() ：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">fork</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>成功的 fork() 返回0，在父进程中 fork() 返回子进程的 pid；失败返回 -1，设置 errno。</p>
+<p>父子进程不同处：</p>
+<ul>
+<li>父子进程 pid 不同。</li>
+<li>子进程 ppid 设置为父进程 pid。</li>
+<li>子进程中资源统计信息清零。</li>
+<li>挂起信号清除。</li>
+<li>文件锁时非继承的。</li>
+</ul>
+<blockquote>
+<p>”派生加执行“的方式是很常见的。</p>
+</blockquote>
+<h5 id="5-2-2-1-写时复制"><a href="#5-2-2-1-写时复制" class="headerlink" title="5.2.2.1 写时复制"></a>5.2.2.1 写时复制</h5><p>如果进程要修改自己的资源”副本“，则进行复制并修改复制后的资源，其他进程仍然共享没修改过的资源。</p>
+<blockquote>
+<p>在使用虚拟内存的情况下， Copy-on-write 是以页为基础进行的。</p>
+</blockquote>
+<h5 id="5-2-2-2-vfork"><a href="#5-2-2-2-vfork" class="headerlink" title="5.2.2.2 vfork"></a>5.2.2.2 vfork</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">vfork</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>vfork() 会挂起父程序直到子进程终止或者运行新程序，以避免地址空间的按页复制。</p>
+<blockquote>
+<p>实际上，vfork() 只做了一件事：复制内部的内核数据结构。</p>
+</blockquote>
+<h3 id="5-3-终止进程"><a href="#5-3-终止进程" class="headerlink" title="5.3 终止进程"></a>5.3 终止进程</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">exit</span> <span class="params">(<span class="type">int</span> status)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>exit() 会执行一些基本的终止步骤，然后通知内核终止进程。</p>
+<p>在终止之前，C 语言函数执行以下工作：</p>
+<ol>
+<li>以注册的逆序调用 atexit() 或 on_exit() 注册的函数</li>
+<li>清空所有已打开的标准 I&#x2F;O 流。</li>
+<li>删除由 tmpfile() 创建的所有临时文件。</li>
+</ol>
+<p>随后，exit() 调用 _exit() 让内核处理剩余工作。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> _exit (<span class="type">int</span> status);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>vfork() 终止进程是，必须使用 _exit()，而不是 exit()。</p>
+</blockquote>
+<h4 id="5-3-1-其他终止进程的方式"><a href="#5-3-1-其他终止进程的方式" class="headerlink" title="5.3.1 其他终止进程的方式"></a>5.3.1 其他终止进程的方式</h4><ol>
+<li>main() 函数返回时，编译器会插入 _exit()。</li>
+<li>进程收到终止信号，SIGTERM 和 SIGKILL。</li>
+<li>进程被内核惩罚性终止（段错误、内存耗尽）。</li>
+</ol>
+<h4 id="5-3-2-atexit"><a href="#5-3-2-atexit" class="headerlink" title="5.3.2 atexit()"></a>5.3.2 atexit()</h4><p>atexit() 会把指定函数注册，在进程正常结束时进行调用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">atexit</span> <span class="params">(<span class="type">void</span> (*function)(<span class="type">void</span>))</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>函数存储在栈中，调用顺序和注册顺序相反， 以 LIFO 的方式调用。</p>
+<p>注册函数不能调用 exit()，否则会引起递归。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">out</span> <span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;atexit( ) succeeded!\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (atexit (out))</span><br><span class="line">    	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;atexit( ) failed!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3-3-on-exit"><a href="#5-3-3-on-exit" class="headerlink" title="5.3.3 on_exit()"></a>5.3.3 on_exit()</h4><p>与 atexti() 一样，只是注册的函数原型不同。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">on_exit</span> <span class="params">(<span class="type">void</span> (*function)(<span class="type">int</span> , <span class="type">void</span> *), <span class="type">void</span> *arg)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3-4-SIGCHLD"><a href="#5-3-4-SIGCHLD" class="headerlink" title="5.3.4 SIGCHLD"></a>5.3.4 SIGCHLD</h4><p>当一个进程子程序终止时，内核会向其夫程序发送 SIGCHILD 信号。</p>
+<blockquote>
+<p>进程可通过 signal() 或 sigaction() 系统调用来选择处理该信号。</p>
+</blockquote>
+<h3 id="5-4-等待终止的子进程"><a href="#5-4-等待终止的子进程" class="headerlink" title="5.4 等待终止的子进程"></a>5.4 等待终止的子进程</h3><p>如果子进程在父进程之前结束，内核将子进程设置为一个特殊状态（僵死进程）。</p>
+<p>进程只保留最小的概要信息，等待父进程来查询自己的信息，之后消失。</p>
+<p>wait() 返回已终止子进程的 pid，或者 -1 表示出错，调用者会阻塞直到子进程终止。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">wait</span> <span class="params">(<span class="type">int</span> *stauts)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>status 通常包含一些子进程的附加信息，POSIX 标准提供宏来解释 status：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">WIFEXITED</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WIFSIGNALED</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WIFSTOPPED</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WIFCONTINUED</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WEXITSTATUS</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WTERMSIG</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WSTOPSIG</span> <span class="params">(status)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">WCOREDUMP</span> <span class="params">(status)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-1-等待特定进程"><a href="#5-4-1-等待特定进程" class="headerlink" title="5.4.1 等待特定进程"></a>5.4.1 等待特定进程</h4><p>使用 waitpid() 系统调用成功，返回状态改变的进程的 pid，错误时返回 -1，设置 errno。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">waitpid</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">int</span> *status, <span class="type">int</span> options)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-2-其他等待子进程的方法"><a href="#5-4-2-其他等待子进程的方法" class="headerlink" title="5.4.2 其他等待子进程的方法"></a>5.4.2 其他等待子进程的方法</h4><p>Linux 提供了 waitid()，该调用有更多的选项，并可以获取更详细的信息。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">waitid</span> <span class="params">(<span class="type">idtype_t</span> idtype, <span class="type">id_t</span> id, <span class="type">siginfo_t</span> *infop, <span class="type">int</span> options)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-3-BSD-中的-wait3-和-wait4"><a href="#5-4-3-BSD-中的-wait3-和-wait4" class="headerlink" title="5.4.3 BSD 中的 wait3() 和 wait4()"></a>5.4.3 BSD 中的 wait3() 和 wait4()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">wait3</span> <span class="params">(<span class="type">int</span> *status, <span class="type">int</span> options, <span class="keyword">struct</span> rusage *rusage)</span>;</span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">wait4</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">int</span> *status, <span class="type">int</span> options, <span class="keyword">struct</span> rusage *rusage)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>数字 3 和 4 实际上是指这两个函数分别有三个和四个参数。</p>
+<p>wait3() 等待任何子进程改变状态，wait4() 等待有 pid 指定的子进程改变状态。</p>
+<p>rsuage参数提供子进程资源的使用情况。</p>
+<h4 id="5-4-4-创建并等待一个新进程"><a href="#5-4-4-创建并等待一个新进程" class="headerlink" title="5.4.4 创建并等待一个新进程"></a>5.4.4 创建并等待一个新进程</h4><p>system() 用于创建新进程并等待它结束。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE <span class="comment">/* if we want WEXITSTATUS, etc. */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">system</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *command)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>成功时，返回时是执行命令的返回状态；失败时返回 -1。</p>
+<blockquote>
+<p>使用 system() 来运行一个简单的工具程序或 shell 脚本是很常见的。</p>
+</blockquote>
+<p>利用 fork()、exec 系统调用和 waitpid() 实现一个 system() 的例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* my_system - synchronously spawns and waits for the command</span></span><br><span class="line"><span class="comment">* &quot;/bin/sh -c &lt;cmd&gt;&quot;.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* Returns -1 on error of any sort, or the exit code from the</span></span><br><span class="line"><span class="comment">* launched process. Does not block or ignore any signals.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">my_system</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> status;</span><br><span class="line">    <span class="type">pid_t</span> pid;</span><br><span class="line">    pid = fork ( );</span><br><span class="line">    <span class="keyword">if</span> (pid == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">const</span> <span class="type">char</span> *argv[<span class="number">4</span>];</span><br><span class="line">        argv[<span class="number">0</span>] = <span class="string">&quot;sh&quot;</span>;</span><br><span class="line">        argv[<span class="number">1</span>] = <span class="string">&quot;-c&quot;</span>;</span><br><span class="line">        argv[<span class="number">2</span>] = cmd;</span><br><span class="line">        argv[<span class="number">3</span>] = <span class="literal">NULL</span>;</span><br><span class="line">        execv (<span class="string">&quot;/bin/sh&quot;</span>, argv);</span><br><span class="line">        <span class="built_in">exit</span> (<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (waitpid (pid, &amp;status, <span class="number">0</span>) == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (WIFEXITED (status))</span><br><span class="line">    	<span class="keyword">return</span> WEXITSTATUS (status);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-5-僵死程序"><a href="#5-4-5-僵死程序" class="headerlink" title="5.4.5 僵死程序"></a>5.4.5 僵死程序</h4><p>如果父进程在子进程之前结束了，内核会将遍历其所有子进程，并将 init() 设置为父进程。</p>
+<h3 id="5-5-用户和组"><a href="#5-5-用户和组" class="headerlink" title="5.5 用户和组"></a>5.5 用户和组</h3><p>用户 ID 和组 ID 分别用 C 语言的 uid_t 和 gid_t 两个类型表示。</p>
+<h4 id="5-5-1-实际用户（组）ID、有效用户（组）ID-和保存设置的用户（组）ID"><a href="#5-5-1-实际用户（组）ID、有效用户（组）ID-和保存设置的用户（组）ID" class="headerlink" title="5.5.1 实际用户（组）ID、有效用户（组）ID 和保存设置的用户（组）ID"></a>5.5.1 实际用户（组）ID、有效用户（组）ID 和保存设置的用户（组）ID</h4><table>
+<thead>
+<tr>
+<th align="center">uid（same as gid）</th>
+<th align="center">desc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">实际用户 ID</td>
+<td align="center">运行进程的用户 ID（继承父进程）</td>
+</tr>
+<tr>
+<td align="center">有效用户 ID</td>
+<td align="center">当前进程使用的用户 ID）（权限验证）</td>
+</tr>
+<tr>
+<td align="center">保存设置的用户 ID</td>
+<td align="center">进程原先的有效用户 ID</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>有效 ID 用于验证权限。</p>
+<p>实际 ID 和保存设置 ID 的作用是允许非 root 进程在用户 ID 之间切换。</p>
+</blockquote>
+<h4 id="5-5-2-改变实际用户（组）ID-和保存设置的用户（组）ID"><a href="#5-5-2-改变实际用户（组）ID-和保存设置的用户（组）ID" class="headerlink" title="5.5.2 改变实际用户（组）ID 和保存设置的用户（组）ID"></a>5.5.2 改变实际用户（组）ID 和保存设置的用户（组）ID</h4><p>setuid() 行为：</p>
+<ol>
+<li>如果普通用户调用，则将有效 ID 设置为 uid。</li>
+<li>如果由有效用户 ID 为0的进程调用，则将real、saved、effective ID 都设置为 uid。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">setuid</span> <span class="params">(<span class="type">uid_t</span> uid)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setgid</span> <span class="params">(<span class="type">gid_t</span> gid)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5-3-改变有效用户和组-ID"><a href="#5-5-3-改变有效用户和组-ID" class="headerlink" title="5.5.3 改变有效用户和组 ID"></a>5.5.3 改变有效用户和组 ID</h4><p>Linux 提供两个 POSIX 定义函数来改变当前进程的有效用户 ID 和组 ID 的值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">seteuid</span> <span class="params">(<span class="type">uid_t</span> euid)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setegid</span> <span class="params">(<span class="type">gid_t</span> egid)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>与 setgid() 区别在于，有效 ID 为 0 的进程调用时，setegid() 只会改变有效用户 ID。</p>
+</blockquote>
+<h4 id="5-5-4-BSD-改变用户-ID-和组-ID-的方式"><a href="#5-5-4-BSD-改变用户-ID-和组-ID-的方式" class="headerlink" title="5.5.4 BSD 改变用户 ID 和组 ID 的方式"></a>5.5.4 BSD 改变用户 ID 和组 ID 的方式</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">setreuid</span> <span class="params">(<span class="type">uid_t</span> ruid, <span class="type">uid_t</span> euid)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setregid</span> <span class="params">(<span class="type">gid_t</span> rgid, <span class="type">gid_t</span> egid)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5-5-HP-UX-中改变用户-ID-和组-ID-的方式"><a href="#5-5-5-HP-UX-中改变用户-ID-和组-ID-的方式" class="headerlink" title="5.5.5 HP-UX 中改变用户 ID 和组 ID 的方式"></a>5.5.5 HP-UX 中改变用户 ID 和组 ID 的方式</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">setresuid</span> <span class="params">(<span class="type">uid_t</span> ruid, <span class="type">uid_t</span> euid, <span class="type">uid_t</span> suid)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setresgid</span> <span class="params">(<span class="type">gid_t</span> rgid, <span class="type">gid_t</span> egid, <span class="type">gid_t</span> sgid)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5-6-操作用户-ID-组-ID-的首选方法"><a href="#5-5-6-操作用户-ID-组-ID-的首选方法" class="headerlink" title="5.5.6 操作用户 ID 组 ID 的首选方法"></a>5.5.6 操作用户 ID 组 ID 的首选方法</h4><p>非 root 使用 seteuid()；root 变三种用 setuid()，临时改变 euid 用 seteuid()。</p>
+<h4 id="5-5-7-对保存设置的用户-ID-的支持"><a href="#5-5-7-对保存设置的用户-ID-的支持" class="headerlink" title="5.5.7 对保存设置的用户 ID 的支持"></a>5.5.7 对保存设置的用户 ID 的支持</h4><p>检查 _POSIX_SAVED_IDS 宏。</p>
+<h4 id="5-5-8-获取用户-ID-和组-ID"><a href="#5-5-8-获取用户-ID-和组-ID" class="headerlink" title="5.5.8 获取用户 ID 和组 ID"></a>5.5.8 获取用户 ID 和组 ID</h4><p>read ID :</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="type">uid_t</span> <span class="title function_">getuid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">gid_t</span> <span class="title function_">getgid</span> <span class="params">(<span class="type">void</span>)</span> </span><br></pre></td></tr></table></figure>
+
+<p>effective ID：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="type">uid_t</span> <span class="title function_">geteuid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">gid_t</span> <span class="title function_">getegid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-6-会话和进程组"><a href="#5-6-会话和进程组" class="headerlink" title="5.6 会话和进程组"></a>5.6 会话和进程组</h3><p>每个进程都属某个进程组，组内可以传递信号。</p>
+<blockquote>
+<p>每个进程组由 pgid 作为唯一标识，且 pgid 就是组长进程 pid。</p>
+</blockquote>
+<p>新用户登陆产生新会话，登陆 shell 作为会话首进程，会话囊括用户所有活动，并分配控制终端。</p>
+<blockquote>
+<p> 会话首进程 PID 等于 会话 ID。</p>
+</blockquote>
+<p>进程组分为一个前台进程组和零个或多个后台进程组。</p>
+<blockquote>
+<p>当用户退出终端，向前台进程组所有进程发送 SIGQUIT 信号。</p>
+<p>当网络中断，向前台进程组所有进程发送 SIGHUP 信号。</p>
+<p>当用户敲入终止键，向前台进程的所有进程发送 SIGINT 信号。</p>
+</blockquote>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221022114157944.png" alt="image-20221022114157944"></p>
+<h4 id="5-6-1-与会话相关的系统调用"><a href="#5-6-1-与会话相关的系统调用" class="headerlink" title="5.6.1 与会话相关的系统调用"></a>5.6.1 与会话相关的系统调用</h4><p>如果进程不是某个进程组组长，调用 setsid() 会创建新会话，并创建新进程组。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">setsid</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>获取当前进程会话 ID：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 500</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">getsid</span> <span class="params">(<span class="type">pid_t</span> pid)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-6-2-与进程相关的系统调用"><a href="#5-6-2-与进程相关的系统调用" class="headerlink" title="5.6.2 与进程相关的系统调用"></a>5.6.2 与进程相关的系统调用</h4><p>setpgid() 将 pid 进程的进程组 ID 设置为 pgid：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 500</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">setpgid</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">pid_t</span> pgid)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>通过会话获取进程的进程组 ID：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 500</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">pid_t</span> <span class="title function_">getpgid</span> <span class="params">(<span class="type">pid_t</span> pid)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-6-3-废弃的进程组函数"><a href="#5-6-3-废弃的进程组函数" class="headerlink" title="5.6.3 废弃的进程组函数"></a>5.6.3 废弃的进程组函数</h4><h3 id="5-7-守护进程"><a href="#5-7-守护进程" class="headerlink" title="5.7 守护进程"></a>5.7 守护进程</h3><p>守护进程在后台运行，不与控制终端关联。</p>
+<p>创建守护进程步骤：</p>
+<ol>
+<li>调用 fork()，创建新进程（未来的守护进程）。</li>
+<li>父进程调用 exit()（保证守护进程不是组长进程）。</li>
+<li>调用 setsid()，创建新会话和新进程组（取消关联终端）。</li>
+<li>用 chdir() 改变工作目录为根目录。</li>
+<li>关闭所有文件描述符。</li>
+<li>将 三个标准文件重定向到 &#x2F;dev&#x2F;null</li>
+</ol>
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/fs.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">pid_t</span> pid;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="comment">/* create new process */</span></span><br><span class="line">    pid = fork ( );</span><br><span class="line">    <span class="keyword">if</span> (pid == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid != <span class="number">0</span>)</span><br><span class="line">    	<span class="built_in">exit</span> (EXIT_SUCCESS);</span><br><span class="line">    <span class="comment">/* create new session and process group */</span></span><br><span class="line">    <span class="keyword">if</span> (setsid ( ) == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">/* set the working directory to the root directory */</span></span><br><span class="line">    <span class="keyword">if</span> (chdir (<span class="string">&quot;/&quot;</span>) == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">/* close all open files--NR_OPEN is overkill, but works */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; NR_OPEN; i++)</span><br><span class="line">    	close (i);</span><br><span class="line">    <span class="comment">/* redirect fd’s 0,1,2 to /dev/null */</span></span><br><span class="line">    open (<span class="string">&quot;/dev/null&quot;</span>, O_RDWR); <span class="comment">/* stdin */</span></span><br><span class="line">    dup (<span class="number">0</span>); <span class="comment">/* stdout */</span></span><br><span class="line">    dup (<span class="number">0</span>); <span class="comment">/* stderror */</span></span><br><span class="line">    <span class="comment">/* do its daemon thing... */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Unix 系统在 C 库中提供 daemon() 函数来简化以上工作：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">daemon</span> <span class="params">(<span class="type">int</span> nochdir, <span class="type">int</span> noclose)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-8-总结"><a href="#5-8-总结" class="headerlink" title="5.8 总结"></a>5.8 总结</h3>
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by aaaris, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%85%AD%E7%AB%A0/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">Linux系统编程 第六章</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%9B%9B%E7%AB%A0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Linux系统编程 第四章</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/aaaris" class="item">GitHub</a>
+                
+                <a href="2997600742@qq.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2022 aaaris<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>

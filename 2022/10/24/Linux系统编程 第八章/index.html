@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zn,en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Linux系统编程 第八章 - aaaris&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Linux系统编程 第八章 - aaaris&#39;s blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://aaaris.github.io/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%85%AB%E7%AB%A0/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2022-10-24T12:55:39.017Z" />
+  
+  <meta property="og:article:author" content="aaaris" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">aaaris&#39;s blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/aaaris" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>24,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Linux系统编程 第八章</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>[TOC]</p>
+<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第八章-内存管理"><a href="#第八章-内存管理" class="headerlink" title="第八章 内存管理"></a>第八章 内存管理</h2><h3 id="8-1-进程地址空间"><a href="#8-1-进程地址空间" class="headerlink" title="8.1 进程地址空间"></a>8.1 进程地址空间</h3><p>Linux 内核为每个进程维护一个特殊的虚拟地址，从 0 开始。</p>
+<h4 id="8-1-1-页和页面调度"><a href="#8-1-1-页和页面调度" class="headerlink" title="8.1.1 页和页面调度"></a>8.1.1 页和页面调度</h4><p>页大小包括 4K (32 bit)，8K (64 bit)。</p>
+<p>每个页面有两种状态：</p>
+<ul>
+<li>有效——与物理页或者一些二级存储介质相关联</li>
+<li>无效——未分配或使用</li>
+</ul>
+<h5 id="8-1-1-1-共享和写时复制"><a href="#8-1-1-1-共享和写时复制" class="headerlink" title="8.1.1.1 共享和写时复制"></a>8.1.1.1 共享和写时复制</h5><p>虚存中的多个页面可能被映射到同个物理页面。</p>
+<p>当一个进程试图写共享页：</p>
+<ul>
+<li>内核允许</li>
+<li>产生异常，内核进行写时拷贝。</li>
+</ul>
+<h4 id="8-1-2-存储器区域"><a href="#8-1-2-存储器区域" class="headerlink" title="8.1.2 存储器区域"></a>8.1.2 存储器区域</h4><p>内核将某些相同特征（例如读写权限）的页组织成块——段。</p>
+<p>每个进程可见的段：</p>
+<ul>
+<li>文本段：只读数据——代码、字符串</li>
+<li>堆栈段：执行栈</li>
+<li>数据段：（heap）动态存储空间，可写。</li>
+<li>BSS 段：未被初始化的全局变量</li>
+<li>映射文件：C 可链接库，映像文件等。</li>
+</ul>
+<h3 id="8-2-动态内存分配"><a href="#8-2-动态内存分配" class="headerlink" title="8.2 动态内存分配"></a>8.2 动态内存分配</h3><p>malloc() 获取动态内存：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">malloc</span> <span class="params">(<span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>C 会自动把返回值由 void 指针转变为需要的类型，C++ 不提供这种自动转换。</p>
+</blockquote>
+<p>例子 xmalloc() ：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* like malloc(), but terminates on failure */</span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">xmalloc</span> <span class="params">(<span class="type">size_t</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">void</span> *p;</span><br><span class="line">    p = <span class="built_in">malloc</span> (size);</span><br><span class="line">    <span class="keyword">if</span> (!p) &#123;</span><br><span class="line">        perror (<span class="string">&quot;xmalloc&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span> (EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-2-1-数组分配"><a href="#8-2-1-数组分配" class="headerlink" title="8.2.1 数组分配"></a>8.2.1 数组分配</h4><p>元素大小确定，个数不确定，C 提供 calloc() 函数解决这个问题：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">calloc</span> <span class="params">(<span class="type">size_t</span> nr, <span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *x, *y;</span><br><span class="line">x = <span class="built_in">malloc</span> (<span class="number">50</span> * <span class="keyword">sizeof</span> (<span class="type">int</span>));</span><br><span class="line"><span class="keyword">if</span> (!x) &#123;</span><br><span class="line">    perror (<span class="string">&quot;malloc&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line">y = <span class="built_in">calloc</span> (<span class="number">50</span>, <span class="keyword">sizeof</span> (<span class="type">int</span>));</span><br><span class="line"><span class="keyword">if</span> (!y) &#123;</span><br><span class="line">    perror (<span class="string">&quot;calloc&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>以上得到的内存大小是一样的，但 calloc 会用二进制0 进行初始化。</p>
+</blockquote>
+<p>自定义接口：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* like malloc( ), but zeros memory and terminates on failure */</span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">xmalloc0</span> <span class="params">(<span class="type">size_t</span> size)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">void</span> *p;</span><br><span class="line">    p = <span class="built_in">calloc</span> (<span class="number">1</span>, size);</span><br><span class="line">    <span class="keyword">if</span> (!p) &#123;</span><br><span class="line">        perror (<span class="string">&quot;xmalloc0&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span> (EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-2-2-调整已分配内存大小"><a href="#8-2-2-调整已分配内存大小" class="headerlink" title="8.2.2 调整已分配内存大小"></a>8.2.2 调整已分配内存大小</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">realloc</span> <span class="params">(<span class="type">void</span> *ptr, <span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>当已有空间无法增加到 size 时，就会另外申请 size 内存并有拷贝操作。</p>
+<blockquote>
+<p>如果 size 为零，效果就会和 ptr 上调用 free() 相同</p>
+</blockquote>
+<h4 id="8-2-3-动态内存的释放"><a href="#8-2-3-动态内存的释放" class="headerlink" title="8.2.3 动态内存的释放"></a>8.2.3 动态内存的释放</h4><p>动态内存分配，必须被显示释放。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">free</span> <span class="params">(<span class="type">void</span> *ptr)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ptr 必须是分配函数的返回值，不能用 free() 来释放申请到的部分内存。</p>
+</blockquote>
+<ul>
+<li>memory leak</li>
+<li>use-after-free</li>
+</ul>
+<h4 id="8-2-4-对齐"><a href="#8-2-4-对齐" class="headerlink" title="8.2.4 对齐"></a>8.2.4 对齐</h4><p>自然对齐：一个变量的地址是它大小的倍数。</p>
+<h5 id="8-2-4-1-预对齐内存的分配"><a href="#8-2-4-1-预对齐内存的分配" class="headerlink" title="8.2.4.1 预对齐内存的分配"></a>8.2.4.1 预对齐内存的分配</h5><p>一般，编译器和 C 库会自动处理对齐问题。</p>
+<p>对于页面等更大的边界， POSIX 提供 posix_memalign() 函数进行动态对齐。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* one or the other -- either suffices */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _XOPEN_SOURCE 600</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">posix_memalign</span> <span class="params">(<span class="type">void</span> **memptr, <span class="type">size_t</span> alignment, <span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>BSD 和 SunOS 提供 valloc() 接口</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">valloc</span> <span class="params">(<span class="type">size_t</span> size)</span>;</span><br><span class="line"><span class="type">void</span> * <span class="title function_">memalign</span> <span class="params">(<span class="type">size_t</span> boundary, <span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>优先选择 posix_memalign()</p>
+</blockquote>
+<h5 id="8-2-4-2-其他对齐问题"><a href="#8-2-4-2-其他对齐问题" class="headerlink" title="8.2.4.2 其他对齐问题"></a>8.2.4.2 其他对齐问题</h5><p>非标准类型的对齐——处理指针和强转时产生错误。</p>
+<h3 id="8-3-数据段的管理"><a href="#8-3-数据段的管理" class="headerlink" title="8.3 数据段的管理"></a>8.3 数据段的管理</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">brk</span> <span class="params">(<span class="type">void</span> *end)</span>;</span><br><span class="line"><span class="type">void</span> * <span class="title function_">sbrk</span> <span class="params">(<span class="type">intptr_t</span> increment)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>brk() 会设置数据段的末端地址为 end，sbrk() 将数据段的末端增加 increment 字节并返回更新后的字节。</p>
+<h3 id="8-4-匿名存储器映射"><a href="#8-4-匿名存储器映射" class="headerlink" title="8.4 匿名存储器映射"></a>8.4 匿名存储器映射</h3><p>buddy memory allocation scheme 算法：</p>
+<ul>
+<li>划分大小为 2 的幂的块，返回最小符合块。</li>
+<li>释放则标记为未使用。</li>
+<li>如果相邻分区空闲，则进行合并。</li>
+<li>堆顶空闲，使用 brk() 归还内存。</li>
+</ul>
+<p>GLIBC —— arena 算法：</p>
+<ul>
+<li>维护释放的内存，后续分配使用</li>
+<li>使用匿名内存映射管理大分配。</li>
+</ul>
+<p>匿名内存映射类似文件映射，但没有对应的文件。</p>
+<h4 id="8-4-1-创建匿名存储器映射"><a href="#8-4-1-创建匿名存储器映射" class="headerlink" title="8.4.1 创建匿名存储器映射"></a>8.4.1 创建匿名存储器映射</h4><p>例子，mmap() 中进行 MAP_ANONYMOUS 设置：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> *p;</span><br><span class="line">p = mmap (<span class="literal">NULL</span>, <span class="comment">/* do not care where */</span></span><br><span class="line">	<span class="number">512</span> * <span class="number">1024</span>, <span class="comment">/* 512 KB */</span></span><br><span class="line">	PROT_READ | PROT_WRITE, <span class="comment">/* read/write */</span></span><br><span class="line">	MAP_ANONYMOUS | MAP_PRIVATE, <span class="comment">/*	anonymous, private */</span></span><br><span class="line">	<span class="number">-1</span>, <span class="comment">/* fd (ignored) */</span></span><br><span class="line">	<span class="number">0</span>); <span class="comment">/* offset (ignored) */</span></span><br><span class="line"><span class="keyword">if</span> (p == MAP_FAILED)</span><br><span class="line">	perror (<span class="string">&quot;mmap&quot;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="comment">/* ’p’ points at 512 KB of anonymous memory... */</span></span><br></pre></td></tr></table></figure>
+
+<p>调用 munmap() 释放一个匿名映射：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ret;</span><br><span class="line"><span class="comment">/* all done with ’p’, so give back the 512 KB</span></span><br><span class="line"><span class="comment">mapping */</span></span><br><span class="line">ret = munmap (p, <span class="number">512</span> * <span class="number">1024</span>);</span><br><span class="line"><span class="keyword">if</span> (ret)</span><br><span class="line">	perror (<span class="string">&quot;munmap&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-4-2-映射到-x2F-dev-x2F-zero"><a href="#8-4-2-映射到-x2F-dev-x2F-zero" class="headerlink" title="8.4.2 映射到 &#x2F;dev&#x2F;zero"></a>8.4.2 映射到 &#x2F;dev&#x2F;zero</h4><p>对于没有 MAP_ANONYMOUS 标志的系统，使用 &#x2F;dev&#x2F;zeror 实现了类似的解决方案。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> *p;</span><br><span class="line"><span class="type">int</span> fd;</span><br><span class="line"><span class="comment">/* open /dev/zero for reading and writing */</span></span><br><span class="line">fd = open (<span class="string">&quot;/dev/zero&quot;</span>, O_RDWR);</span><br><span class="line"><span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror (<span class="string">&quot;open&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* map [0,page size) of /dev/zero */</span></span><br><span class="line">p = mmap (<span class="literal">NULL</span>, <span class="comment">/* do not care where */</span></span><br><span class="line">        getpagesize ( ), <span class="comment">/* map one page */</span></span><br><span class="line">        PROT_READ | PROT_WRITE, <span class="comment">/* map</span></span><br><span class="line"><span class="comment">        read/write */</span></span><br><span class="line">        MAP_PRIVATE, <span class="comment">/* private mapping */</span></span><br><span class="line">        fd, <span class="comment">/* map /dev/zero */</span></span><br><span class="line">        <span class="number">0</span>); <span class="comment">/* no offset */</span></span><br><span class="line"><span class="keyword">if</span> (p == MAP_FAILED) &#123;</span><br><span class="line">    perror (<span class="string">&quot;mmap&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (close (fd))</span><br><span class="line">        perror (<span class="string">&quot;close&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* close /dev/zero, no longer needed */</span></span><br><span class="line"><span class="keyword">if</span> (close (fd))</span><br><span class="line">	perror (”close”);</span><br><span class="line"><span class="comment">/* ’p’ points at one page of memory, use it... */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-5-高级存储器分配"><a href="#8-5-高级存储器分配" class="headerlink" title="8.5 高级存储器分配"></a>8.5 高级存储器分配</h3><p>mallopt() 调用可以用于改变一些内核参数。</p>
+<ul>
+<li>M_CHECK_ACTION</li>
+<li>M_MMAP_MAX 最大存储器映射</li>
+<li>M_MMAP_THRESHOLD 使用匿名映射和数据段之间的阈值</li>
+<li>M_MXFAST fast bin 的最大大小</li>
+<li>M_TOP_PAD 调整数据段使用的填充字节数</li>
+</ul>
+<blockquote>
+<p>需要在调用内存分配函数之前使用 mallopt() </p>
+</blockquote>
+<h4 id="8-5-1-使用-malloc-usable-size-和-malloc-trim-进行调优"><a href="#8-5-1-使用-malloc-usable-size-和-malloc-trim-进行调优" class="headerlink" title="8.5.1 使用 malloc_usable_size() 和 malloc_trim() 进行调优"></a>8.5.1 使用 malloc_usable_size() 和 malloc_trim() 进行调优</h4><p>malloc_usable_size() 用来查询已分配块拥有的可用字节数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="type">size_t</span> <span class="title function_">malloc_usable_size</span> <span class="params">(<span class="type">void</span> *ptr)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>malloc_trim() 允许程序强制 glibc 归还所有的可释放的动态内存给内核：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">malloc_trim</span> <span class="params">(<span class="type">size_t</span> padding)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>它们是不可移植的，且会暴露底层细节。</p>
+</blockquote>
+<h3 id="8-6-调试内存分配"><a href="#8-6-调试内存分配" class="headerlink" title="8.6 调试内存分配"></a>8.6 调试内存分配</h3><p>程序可以设置 MALLOC_CHECK_ 环境变量来开启存储系统额外的调试功能。</p>
+<p>执行如下指令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MALLOC_CHECK_=1 ./rudder</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-6-1-获得统计数据"><a href="#8-6-1-获得统计数据" class="headerlink" title="8.6.1 获得统计数据"></a>8.6.1 获得统计数据</h4><p>Linux 提供 mallinfo() 函数来获得关于动态存储分配系统的统计数据：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> mallinfo <span class="title function_">mallinfo</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Linux 提供 stats() 函数，将更内存相关的统计数据打印到标准错误输出：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">malloc_stats</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-7-基于栈的分配"><a href="#8-7-基于栈的分配" class="headerlink" title="8.7 基于栈的分配"></a>8.7 基于栈的分配</h3><p>使用 alloca() 在栈中实现动态内存分配：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;alloca.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> * <span class="title function_">alloca</span> <span class="params">(<span class="type">size_t</span> size)</span>;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by aaaris, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%B8%83%E7%AB%A0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Linux系统编程 第七章</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/aaaris" class="item">GitHub</a>
+                
+                <a href="2997600742@qq.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2022 aaaris<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>

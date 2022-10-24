@@ -267,13 +267,7 @@
 <blockquote>
 <p>在多线程中，每一个程序都保留了自己的 errno，因此是线程安全的。</p>
 </blockquote>
-<h3 id="1-5-开始系统编程"><a href="#1-5-开始系统编程" class="headerlink" title="1.5 开始系统编程"></a>1.5 开始系统编程</h3><h2 id="第二章-文件-I-x2F-O"><a href="#第二章-文件-I-x2F-O" class="headerlink" title="第二章 文件 I&#x2F;O"></a>第二章 文件 I&#x2F;O</h2><p>内核为每个进程维护 file table，该表由一些称作 file descriptors 的非负整数进行索引。</p>
-<p>子进程默认会获得一份父进程的文件表拷贝。</p>
-<p>每个进程按照惯例会至少有三个打开的文件描述符：0，1 和 2，即 stdin、stdout、stderr。</p>
-<blockquote>
-<p>一切皆文件，任何能读写的东西都可以用文件描述符进行访问。</p>
-</blockquote>
-
+<h3 id="1-5-开始系统编程"><a href="#1-5-开始系统编程" class="headerlink" title="1.5 开始系统编程"></a>1.5 开始系统编程</h3>
     </div>
 
     

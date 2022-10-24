@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zn,en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Linux系统编程 第六章 - aaaris&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Linux系统编程 第六章 - aaaris&#39;s blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://aaaris.github.io/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%85%AD%E7%AB%A0/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2022-10-24T12:52:03.293Z" />
+  
+  <meta property="og:article:author" content="aaaris" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">aaaris&#39;s blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/aaaris" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>24,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Linux系统编程 第六章</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>[TOC]</p>
+<h1 id="Linux系统编程"><a href="#Linux系统编程" class="headerlink" title="Linux系统编程"></a>Linux系统编程</h1><h2 id="第六章-高级进程管理"><a href="#第六章-高级进程管理" class="headerlink" title="第六章 高级进程管理"></a>第六章 高级进程管理</h2><h3 id="6-1-进程调度"><a href="#6-1-进程调度" class="headerlink" title="6.1 进程调度"></a>6.1 进程调度</h3><p>调度器：把有限的处理器资源分配给进程的内核子系统。</p>
+<p>时间片：进程在被强占前所允许的时间称为进程时间片。</p>
+<p>Linux 实现了抢占式多任务操作系统——要求一个进程停止，处理器允许另一个。</p>
+<h4 id="6-1-1-大-O-计法"><a href="#6-1-1-大-O-计法" class="headerlink" title="6.1.1 大 O 计法"></a>6.1.1 大 O 计法</h4><p>Linux 调度器的实现算法是 O(1) 算法。</p>
+<h4 id="6-1-2-时间片"><a href="#6-1-2-时间片" class="headerlink" title="6.1.2 时间片"></a>6.1.2 时间片</h4><p>Linux 通过动态分配进程时间片，以平衡交互性能和系统吞吐量。 </p>
+<h4 id="6-1-3-I-x2F-O-约束进程-Vs-处理器约束进程"><a href="#6-1-3-I-x2F-O-约束进程-Vs-处理器约束进程" class="headerlink" title="6.1.3 I&#x2F;O 约束进程 Vs. 处理器约束进程"></a>6.1.3 I&#x2F;O 约束进程 Vs. 处理器约束进程</h4><p>处理器约束进程：持续消耗时间片（科学计算，无限循环）</p>
+<p>I&#x2F;O 约束进程：总是在等待资源的阻塞状态（GUI应用程序）</p>
+<h4 id="6-1-4-抢占调度"><a href="#6-1-4-抢占调度" class="headerlink" title="6.1.4 抢占调度"></a>6.1.4 抢占调度</h4><p>内核会基于所有耗光时间片的进程新的时间片，确保所有进程都运行。</p>
+<blockquote>
+<p>如果没有就绪进程，内核会”运行“空闲进程（idle process）。</p>
+</blockquote>
+<h4 id="6-1-5-线程"><a href="#6-1-5-线程" class="headerlink" title="6.1.5 线程"></a>6.1.5 线程</h4><p>Linux 内核把线程简化为共享资源的进程。</p>
+<blockquote>
+<p>Linux 线程编程常用 API ”pthreads“。</p>
+</blockquote>
+<h3 id="6-2-让出处理器"><a href="#6-2-让出处理器" class="headerlink" title="6.2 让出处理器"></a>6.2 让出处理器</h3><p>sched_yield() 允许进程主动让出处理器，如果没有其他就绪进程，让出进程直接恢复。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sched.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_yield</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-2-1-合理使用"><a href="#6-2-1-合理使用" class="headerlink" title="6.2.1 合理使用"></a>6.2.1 合理使用</h4><ul>
+<li><p>消费者&#x2F;生产者模型，消费之等待（常用阻塞机制）。</p>
+</li>
+<li><p>用户线程锁</p>
+</li>
+</ul>
+<blockquote>
+<p>内核能比独立进程做出更好的全局调度决策，一般不常用该调用。</p>
+</blockquote>
+<h4 id="6-2-2-让出处理器方法的过去和现状"><a href="#6-2-2-让出处理器方法的过去和现状" class="headerlink" title="6.2.2 让出处理器方法的过去和现状"></a>6.2.2 让出处理器方法的过去和现状</h4><p>2.6 内核之后，调整了算法，防止”乒乓“的不合理情况发生。</p>
+<h3 id="6-3-进程优先级"><a href="#6-3-进程优先级" class="headerlink" title="6.3 进程优先级"></a>6.3 进程优先级</h3><p>优先级：”nice values”。nice 值意味着对系统友好。nice 值越高，优先级越低，时间片越短。</p>
+<p>Linux 调度器基于”高优先级程序先运行“的原则进行调度。</p>
+<h4 id="6-3-1-nice"><a href="#6-3-1-nice" class="headerlink" title="6.3.1 nice()"></a>6.3.1 nice()</h4><p>nice() 将在现有优先级上增加 inc，并返回新值。</p>
+<p>非 root 进程只能降低优先级（增加 inc）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">nice</span> <span class="params">(<span class="type">int</span> inc)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-3-2-getpriority-和-setpriority"><a href="#6-3-2-getpriority-和-setpriority" class="headerlink" title="6.3.2 getpriority() 和 setpriority()"></a>6.3.2 getpriority() 和 setpriority()</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">getpriority</span> <span class="params">(<span class="type">int</span> which, <span class="type">int</span> who)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setpriority</span> <span class="params">(<span class="type">int</span> which, <span class="type">int</span> who, <span class="type">int</span> prio)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>getpriority() 返回指定进程中的最高优先级，setpriority() 将所有进程的优先级都设为”prio“。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* get current process&#x27;s priority */</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = getpriority (PRIO_PROCESS, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;nice value is %d\n&quot;</span>, ret);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* set all process&#x27;s priority to 10 in current process group */</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = setpriority (PGIO_PGRP, <span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>)</span><br><span class="line">perror (<span class="string">&quot;setpriority&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-3-3-I-x2F-O-优先级"><a href="#6-3-3-I-x2F-O-优先级" class="headerlink" title="6.3.3  I&#x2F;O 优先级"></a>6.3.3  I&#x2F;O 优先级</h4><p>缺省情况，I&#x2F;O 调度器使用进程友好度决定 I&#x2F;O 优先级。</p>
+<p>因此，设置优先级自动改变 I&#x2F;O 优先级。</p>
+<h3 id="6-4-处理器亲和度"><a href="#6-4-处理器亲和度" class="headerlink" title="6.4 处理器亲和度"></a>6.4 处理器亲和度</h3><p>处理器亲和度表明一个进程停留在同一处理器上的可能性。</p>
+<ul>
+<li><p>软亲和度表明了调度器持续调度进程到同一处理器上的自然倾向。</p>
+</li>
+<li><p>硬亲和度描述了强制内核保证进程到处理器的绑定。</p>
+</li>
+</ul>
+<blockquote>
+<p>处理器的缓存独立，因此迁移进程会带来缓存效应。</p>
+</blockquote>
+<h4 id="6-4-1-sched-getaffinity-和-sched-setaffinity"><a href="#6-4-1-sched-getaffinity-和-sched-setaffinity" class="headerlink" title="6.4.1 sched_getaffinity() 和 sched_setaffinity()"></a>6.4.1 sched_getaffinity() 和 sched_setaffinity()</h4><p>Linux 提供两个系统调用设定和获取进程的硬亲和度。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sched.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">cpu_set_t</span>;</span></span><br><span class="line"><span class="type">size_t</span> CPU_SETSIZE;</span><br><span class="line"><span class="type">void</span> <span class="title function_">CPU_SET</span> <span class="params">(<span class="type">unsigned</span> <span class="type">long</span> cpu, <span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">CPU_CLR</span> <span class="params">(<span class="type">unsigned</span> <span class="type">long</span> cpu, <span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">CPU_ISSET</span> <span class="params">(<span class="type">unsigned</span> <span class="type">long</span> cpu, <span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">CPU_ZERO</span> <span class="params">(<span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_setaffinity</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">size_t</span> setsize, <span class="type">const</span> <span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_getaffinity</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">size_t</span> setsize, <span class="type">const</span> <span class="type">cpu_set_t</span> *<span class="built_in">set</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">cpu_set_t</span> <span class="built_in">set</span>;</span><br><span class="line"><span class="type">int</span> ret, i;</span><br><span class="line">CPU_ZERO (&amp;<span class="built_in">set</span>); <span class="comment">/* clear all CPUs */</span></span><br><span class="line">CPU_SET (<span class="number">0</span>, &amp;<span class="built_in">set</span>); <span class="comment">/* allow CPU #0 */</span></span><br><span class="line">CPU_CLR (<span class="number">1</span>, &amp;<span class="built_in">set</span>); <span class="comment">/* forbid CPU #1 */</span></span><br><span class="line">ret = sched_setaffinity (<span class="number">0</span>, <span class="keyword">sizeof</span> (<span class="type">cpu_set_t</span>), &amp;<span class="built_in">set</span>);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>)</span><br><span class="line">	perror (<span class="string">&quot;sched_setaffinity&quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; CPU_SETSIZE; i++) &#123;</span><br><span class="line">    <span class="type">int</span> cpu;</span><br><span class="line">    cpu = CPU_ISSET (i, &amp;<span class="built_in">set</span>);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;cpu=%i is %s\n&quot;</span>, i, cpu ? <span class="string">&quot;set&quot;</span> : <span class="string">&quot;unset&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-实时系统"><a href="#6-5-实时系统" class="headerlink" title="6.5 实时系统"></a>6.5 实时系统</h3><p>如果一个系统受到操作期限的支配（任务具有限定时间），称该系统是”实时“的。</p>
+<p>特点：逻辑和时序出现出现偏差会引起严重后果的系统。</p>
+<h4 id="6-5-1-软硬实时系统"><a href="#6-5-1-软硬实时系统" class="headerlink" title="6.5.1 软硬实时系统"></a>6.5.1 软硬实时系统</h4><p>软实时系统：各个任务越快越好，不要求限定时间。</p>
+<p>硬实时系统：各任务执行无误且准时。</p>
+<h4 id="6-5-2-延时，抖动和截止期限"><a href="#6-5-2-延时，抖动和截止期限" class="headerlink" title="6.5.2 延时，抖动和截止期限"></a>6.5.2 延时，抖动和截止期限</h4><p>延时：刺激发生到响应运行的时间。</p>
+<p>抖动：连续事件中间的时间变化</p>
+<h4 id="6-5-3-Linux-的实时支持"><a href="#6-5-3-Linux-的实时支持" class="headerlink" title="6.5.3 Linux 的实时支持"></a>6.5.3 Linux 的实时支持</h4><p>POISX 标准仅仅描述了一些基于优先级的调度策略。</p>
+<h4 id="6-5-4-Linux-调度策略和优先级"><a href="#6-5-4-Linux-调度策略和优先级" class="headerlink" title="6.5.4 Linux 调度策略和优先级"></a>6.5.4 Linux 调度策略和优先级</h4><h5 id="6-5-4-1-”先进先出“策略"><a href="#6-5-4-1-”先进先出“策略" class="headerlink" title="6.5.4.1 ”先进先出“策略"></a>6.5.4.1 ”先进先出“策略</h5><p>只要没有高优先级进程就绪，FIFO 进程就会持续运行。</p>
+<h5 id="6-5-4-2-”轮转“策略"><a href="#6-5-4-2-”轮转“策略" class="headerlink" title="6.5.4.2 ”轮转“策略"></a>6.5.4.2 ”轮转“策略</h5><p>类似 FIFO 类型，引入时间片来处理同优先级进程的规则。</p>
+<h5 id="6-5-4-3-普通调度策略"><a href="#6-5-4-3-普通调度策略" class="headerlink" title="6.5.4.3 普通调度策略"></a>6.5.4.3 普通调度策略</h5><p>默认进程，静态优先级为0。</p>
+<h5 id="6-5-4-4-批调度策略"><a href="#6-5-4-4-批调度策略" class="headerlink" title="6.5.4.4 批调度策略"></a>6.5.4.4 批调度策略</h5><p>只在没有其他就绪进程时，才会运行。</p>
+<h5 id="6-5-4-5-设置-Linux-调度策略"><a href="#6-5-4-5-设置-Linux-调度策略" class="headerlink" title="6.5.4.5 设置 Linux 调度策略"></a>6.5.4.5 设置 Linux 调度策略</h5><p>通过 sched_getscheduler() 和 sched_setcheduler() 操作调度策略。</p>
+<h4 id="6-5-5-设置调度参数"><a href="#6-5-5-设置调度参数" class="headerlink" title="6.5.5 设置调度参数"></a>6.5.5 设置调度参数</h4><p>POSIX 定义的 sched_getparam() 和 sched_setparam() 接口可以获取和设置已有调用策略的相关参数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sched.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sched_param</span> &#123;</span></span><br><span class="line"><span class="comment">/* ... */</span></span><br><span class="line"><span class="type">int</span> sched_priority;</span><br><span class="line"><span class="comment">/* ... */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_getparam</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="keyword">struct</span> sched_param *sp)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_setparam</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">const</span> <span class="keyword">struct</span> sched_param *sp)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="6-5-5-1-错误码"><a href="#6-5-5-1-错误码" class="headerlink" title="6.5.5.1 错误码"></a>6.5.5.1 错误码</h5><h5 id="6-5-5-2-确定有效优先级的范围"><a href="#6-5-5-2-确定有效优先级的范围" class="headerlink" title="6.5.5.2 确定有效优先级的范围"></a>6.5.5.2 确定有效优先级的范围</h5><p>Linux 提供两个系统调用来获取优先级范围：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sched.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_get_priority_min</span> <span class="params">(<span class="type">int</span> policy)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_get_priority_max</span> <span class="params">(<span class="type">int</span> policy)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* set_highest_priority – set the associated pid’s scheduling</span></span><br><span class="line"><span class="comment">* priority to the highest value allowed by its current</span></span><br><span class="line"><span class="comment">* scheduling policy. If pid is zero, sets the current</span></span><br><span class="line"><span class="comment">* process’s priority.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* Returns zero on success.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">set_highest_priority</span> <span class="params">(<span class="type">pid_t</span> pid)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sched_param</span> <span class="title">sp</span>;</span></span><br><span class="line">    <span class="type">int</span> policy, max, ret;</span><br><span class="line">    policy = sched_getscheduler (pid);</span><br><span class="line">    <span class="keyword">if</span> (policy == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    max = sched_get_priority_max (policy);</span><br><span class="line">    <span class="keyword">if</span> (max == <span class="number">-1</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">memset</span> (&amp;sp, <span class="number">0</span>, <span class="keyword">sizeof</span> (<span class="keyword">struct</span> sched_param));</span><br><span class="line">    sp.sched_priority = max;</span><br><span class="line">    ret = sched_setparam (pid, &amp;sp);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>程序一般获取系统的最值，然后按1递增（如max-1,max-2），分配给进程</p>
+</blockquote>
+<h4 id="6-5-6-sched-rr-get-interval"><a href="#6-5-6-sched-rr-get-interval" class="headerlink" title="6.5.6 sched_rr_get_interval()"></a>6.5.6 sched_rr_get_interval()</h4><p>在 Linux 上，它可以获取任意进程的时间片长度。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sched.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> &#123;</span></span><br><span class="line">    <span class="type">time_t</span> tv_sec; <span class="comment">/* seconds */</span></span><br><span class="line">    <span class="type">long</span> tv_nsec; <span class="comment">/* nanoseconds */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sched_rr_get_interval</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="keyword">struct</span> timespec *tp)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">tp</span>;</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line"><span class="comment">/* get the current task’s timeslice length */</span></span><br><span class="line">ret = sched_rr_get_interval (<span class="number">0</span>, &amp;tp);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">    perror (<span class="string">&quot;sched_rr_get_interval&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* convert the seconds and nanoseconds to milliseconds */</span></span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;Our time quantum is %.2lf milliseconds\n&quot;</span>, (tp.tv_sec * <span class="number">1000.0f</span>) + (tp.tv_nsec / <span class="number">1000000.0f</span>));</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-5-6-1-错误码"><a href="#6-5-6-1-错误码" class="headerlink" title="6.5.6.1 错误码"></a>6.5.6.1 错误码</h5><h4 id="6-5-7-关于实时进程的一些提醒"><a href="#6-5-7-关于实时进程的一些提醒" class="headerlink" title="6.5.7 关于实时进程的一些提醒"></a>6.5.7 关于实时进程的一些提醒</h4><blockquote>
+<p>开发时，保证高优先级程序存在。</p>
+</blockquote>
+<h4 id="6-5-8-确定性"><a href="#6-5-8-确定性" class="headerlink" title="6.5.8 确定性"></a>6.5.8 确定性</h4><p>确定性动作：输入相同，动作在相同的事件产生相同结果。</p>
+<h5 id="6-5-8-1-数据故障预测和内存锁"><a href="#6-5-8-1-数据故障预测和内存锁" class="headerlink" title="6.5.8.1 数据故障预测和内存锁"></a>6.5.8.1 数据故障预测和内存锁</h5><p>分页和交换给实时进程带来了很多不确定性。</p>
+<p>实时应用往往“通过锁定”或者“硬连接”来将地址空间中的页提前放入物理内存，阻止被交换。</p>
+<h5 id="6-5-8-2-CPU-亲和度和实时进程"><a href="#6-5-8-2-CPU-亲和度和实时进程" class="headerlink" title="6.5.8.2 CPU 亲和度和实时进程"></a>6.5.8.2 CPU 亲和度和实时进程</h5><p>为每个实时进程保留一个处理器，剩余处理器共享使用。</p>
+<h3 id="6-6-资源限制"><a href="#6-6-资源限制" class="headerlink" title="6.6 资源限制"></a>6.6 资源限制</h3><p>Linux 提供两个操作资源限制的系统调用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rlimit</span> &#123;</span></span><br><span class="line">    <span class="type">rlim_t</span> rlim_cur; <span class="comment">/* soft limit */</span></span><br><span class="line">    <span class="type">rlim_t</span> rlim_max; <span class="comment">/* hard limit */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">getrlimit</span> <span class="params">(<span class="type">int</span> resource, <span class="keyword">struct</span> rlimit *rlim)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">setrlimit</span> <span class="params">(<span class="type">int</span> resource, <span class="type">const</span> <span class="keyword">struct</span> rlimit *rlim)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>内核对进程强制实行软限制，但可被修改。非特权程序不能提升硬限制。</p>
+</blockquote>
+<h4 id="6-6-1-限制列表"><a href="#6-6-1-限制列表" class="headerlink" title="6.6.1 限制列表"></a>6.6.1 限制列表</h4><ul>
+<li>RLIMIT_AS 进程地址空间</li>
+<li>RLIMIT_CORE 内存转储文件</li>
+<li>RLIMIT_CPU 使用的最长 CPU 时间</li>
+<li>RLIMIT_DATA 进程数据段和堆大小</li>
+<li>RLIMIT_FSIZE 创建文件大小</li>
+<li>RLIMIT_LOCKS 文件锁数量（已移除）</li>
+<li>RLIMIT_MEMLOCK 非 root 程序锁定内存字节数</li>
+<li>RLIMIT_MSGQUEUE 在消息队列中非陪的最多字节</li>
+<li>RLIMIT_NICE 进程可以降低 nice 值</li>
+<li>RLIMIT_NOFILE 打开的最多文件数</li>
+<li>RLIMIT_NPROC 允许的最多进程数</li>
+<li>RLMIT_RSS 进程驻留在内存中的最多页数</li>
+<li>RLIMIT_RTPRIO 最大实时优先级</li>
+<li>RLIMIT_SIGPENDING 消息队列中最多信号数</li>
+<li>RLIMIT_STACK 栈最大字节长度</li>
+</ul>
+<h5 id="6-6-1-1-默认限制"><a href="#6-6-1-1-默认限制" class="headerlink" title="6.6.1.1 默认限制"></a>6.6.1.1 默认限制</h5><p>约束变量：初始软限制，初始硬限制和系统管理员。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221022205344274.png" alt="image-20221022205344274"></p>
+<h4 id="6-6-2-获取和设置资源限制"><a href="#6-6-2-获取和设置资源限制" class="headerlink" title="6.6.2 获取和设置资源限制"></a>6.6.2 获取和设置资源限制</h4><p>获取例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rlimit</span> <span class="title">rlim</span>;</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line"><span class="comment">/* get the limit on core sizes */</span></span><br><span class="line">ret = getrlimit (RLIMIT_CORE, &amp;rlim);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">    perror (<span class="string">&quot;getrlimit&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;RLIMIT_CORE limits: soft=%ld hard=%ld\n&quot;</span>, rlim.rlim_cur, rlim.rlim_max);</span><br></pre></td></tr></table></figure>
+
+<p>设置：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rlimit</span> <span class="title">rlim</span>;</span></span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line">rlim.rlim_cur = <span class="number">32</span> * <span class="number">1024</span> * <span class="number">1024</span>; <span class="comment">/* 32 MB */</span></span><br><span class="line">rlim.rlim_max = RLIM_INFINITY; <span class="comment">/* leave it alone */</span></span><br><span class="line">ret = setrlimit (RLIMIT_CORE, &amp;rlim);</span><br><span class="line"><span class="keyword">if</span> (ret == <span class="number">-1</span>) &#123;</span><br><span class="line">    perror (<span class="string">&quot;setrlimit&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="6-6-2-1-错误码"><a href="#6-6-2-1-错误码" class="headerlink" title="6.6.2.1 错误码"></a>6.6.2.1 错误码</h5>
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by aaaris, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%B8%83%E7%AB%A0/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">Linux系统编程 第七章</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%BA%94%E7%AB%A0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Linux系统编程 第五章</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/aaaris" class="item">GitHub</a>
+                
+                <a href="2997600742@qq.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2022 aaaris<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
