@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zn,en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Linux系统编程 第九章 - aaaris&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Linux系统编程 第九章 - aaaris&#39;s blog" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://aaaris.github.io/2022/10/25/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E4%B9%9D%E7%AB%A0/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  <meta property="og:article:published_time" content="2022-10-25T00:39:47.000Z" />
+  
+  <meta property="og:article:author" content="aaaris" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="5"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">aaaris&#39;s blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/aaaris" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>25,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Linux系统编程 第九章</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="Linux-系统编程"><a href="#Linux-系统编程" class="headerlink" title="Linux 系统编程"></a>Linux 系统编程</h1><h2 id="第九章-信号"><a href="#第九章-信号" class="headerlink" title="第九章 信号"></a>第九章 信号</h2><p>信号是提供处理异步事件机制的软件中断，也是一种 IPC 的基本形式。</p>
+<p>信号处理函数在内核注册，并被异步地调用。</p>
+<h3 id="9-1-信号概念"><a href="#9-1-信号概念" class="headerlink" title="9.1 信号概念"></a>9.1 信号概念</h3><p>信号生命周期：产生 &gt;&gt; 内存存储发送 &gt;&gt; 内核处理</p>
+<p>内核根据进程的请求进行三种处理方式：</p>
+<ul>
+<li>忽略信号<ul>
+<li>不采取任何操作。（SIGKILL 和 SIGSTOP 无法忽略）</li>
+</ul>
+</li>
+<li>捕获并处理信号<ul>
+<li>暂停进程 &gt;&gt; 调用注册函数 &gt;&gt; 回到进程继续运行。（SIGKILL 和 SIGSTOP 无法捕获）</li>
+</ul>
+</li>
+<li>执行默认操作<ul>
+<li>取决于被发送的信号，默认操作通常是终止信号。程序员自提供信号默认是忽略。</li>
+</ul>
+</li>
+</ul>
+<h4 id="9-1-1-信号标识符"><a href="#9-1-1-信号标识符" class="headerlink" title="9.1.1 信号标识符"></a>9.1.1 信号标识符</h4><p>信号标识符以 SIG 作为前缀，在 &lt;signal.h&gt; 头文件定义。</p>
+<blockquote>
+<p>使用 <code>kill -l</code> 命令产生一个系统支持的信号列表</p>
+</blockquote>
+<h4 id="9-1-2-Linux-支持的信号"><a href="#9-1-2-Linux-支持的信号" class="headerlink" title="9.1.2 Linux 支持的信号"></a>9.1.2 Linux 支持的信号</h4><p><img src="https://cdn.jsdelivr.net/gh/aaaris/picture/img/image-20221025085546615.png" alt="image-20221025085546615"></p>
+<h3 id="9-2-基本信号管理"><a href="#9-2-基本信号管理" class="headerlink" title="9.2 基本信号管理"></a>9.2 基本信号管理</h3><p>signal() 函数是最简单古老的信号管理接口。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span> <span class="params">(*<span class="type">sighandler_t</span>)</span><span class="params">(<span class="type">int</span>)</span>;</span><br><span class="line"><span class="type">sighandler_t</span> <span class="title function_">signal</span> <span class="params">(<span class="type">int</span> signo, <span class="type">sighandler_t</span> handler)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>成功调用后，移除 signo 信号的当前操作，并注册 handler 函数来处理该信号。</p>
+<blockquote>
+<p>SIG_DEF 设置未默认操作，SIG_IGN 忽略 signo 表示的信号。</p>
+</blockquote>
+<h4 id="9-2-1-等待信号"><a href="#9-2-1-等待信号" class="headerlink" title="9.2.1 等待信号"></a>9.2.1 等待信号</h4><p>POSIX 定义 pause() 调用，使进程睡眠，接收到信号（不包括被忽略的信号）后返回。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">pause</span> <span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-2-2-例子"><a href="#9-2-2-例子" class="headerlink" title="9.2.2 例子"></a>9.2.2 例子</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="comment">/* SIGINT 的处理程序*/</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">sigint_handler</span> <span class="params">(<span class="type">int</span> signo)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 从技术上来说，在信号处理程序中不应该使用 printf()，</span></span><br><span class="line"><span class="comment">    * 但这不是非常严重的问题。</span></span><br><span class="line"><span class="comment">    * 我会在“重入”这部分讨论为什么可以这么做。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;Caught SIGINT!\n&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span> (EXIT_SUCCESS);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 注册 signint_handler 作为 SIGINT 的信号处理程序。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span> (signal (SIGINT, sigint_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">&quot;Cannot handle SIGINT!\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span> (EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (;;)</span><br><span class="line">    	pause ( );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="9-2-3-执行与继承"><a href="#9-2-3-执行与继承" class="headerlink" title="9.2.3 执行与继承"></a>9.2.3 执行与继承</h4><p>新进程中，任何父进程捕获的信号都重置为默认操作。因为新进程没共享父进程的地址空间。</p>
+<blockquote>
+<p>当内核执行一个”后台“进程时，应设置 SIGINT 和 SIGQUIT 为忽略。</p>
+</blockquote>
+<p>例子，处理程序得先检查信号不被忽略：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 只有 SIG_INT 不被忽略时才处理它 */</span></span><br><span class="line"><span class="keyword">if</span> (signal (SIGINT, SIG_IGN) != SIG_IGN) &#123;</span><br><span class="line">    <span class="keyword">if</span> (signal (SIGINT, sigint_handler) == SIG_ERR)</span><br><span class="line">    	<span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">&quot;Failed to handle SIGINT!\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 只有 SIG_QUIT 不被忽略时才处理它 */</span></span><br><span class="line"><span class="keyword">if</span> (signal (SIGQUIT, SIG_IGN) != SIG_IGN) &#123;</span><br><span class="line">    <span class="keyword">if</span> (signal(SIGQUIT, sigquit_handler) == SIG_ERR)</span><br><span class="line">    	<span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">&quot;Failed to handle SIGQUIT!\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在设置信号的行为前需要检查信号的行为，这是 signal() 一个突出的缺点。</p>
+<p>fork() 得到的子进程完全继承父进程的信号处理方式，因为父子进程共享同一个地址空间。</p>
+</blockquote>
+<h4 id="9-2-4-映射信号标号为字符串"><a href="#9-2-4-映射信号标号为字符串" class="headerlink" title="9.2.4 映射信号标号为字符串"></a>9.2.4 映射信号标号为字符串</h4><ul>
+<li>从静态定义列表中检索字符串：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="type">const</span> <span class="type">char</span> * <span class="type">const</span> sys_siglist[];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通常是 best choice</p>
+</blockquote>
+<ul>
+<li>BSD 定义 psignal() 接口向 stderr 输出 msg，加上 signo 的信号名称</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">psignal</span> <span class="params">(<span class="type">int</span> signo, <span class="type">const</span> <span class="type">char</span> *msg)</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>非标准化接口 strsignal() 返回一个描述 signo 信号的指针：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strsignal</span> <span class="params">(<span class="type">int</span> signo)</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>strsignal() 不是线程安全的。</p>
+</blockquote>
+<h3 id="9-3-发送信号"><a href="#9-3-发送信号" class="headerlink" title="9.3 发送信号"></a>9.3 发送信号</h3><p>kill() 调用从一个进程向另外一个进程发送信号，向 pid 进程发送 signo信号：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">kill</span> <span class="params">(<span class="type">pid_t</span> pid, <span class="type">int</span> signo)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-1-权限"><a href="#9-3-1-权限" class="headerlink" title="9.3.1 权限"></a>9.3.1 权限</h4><p>有 CAP_KILL 权限的进程能给任何进程发送信号。此外，用户只能给自己的进程发送信号。</p>
+<blockquote>
+<p>Unix 为 SIGCOUT 定义了一个特例：同一个会话中，进程可以任意发送该信号。</p>
+<p>测试进程关于发送信号的权限，通常可以使用空信号—— signo 为零。</p>
+</blockquote>
+<h4 id="9-3-2-例子"><a href="#9-3-2-例子" class="headerlink" title="9.3.2 例子"></a>9.3.2 例子</h4><p>发送 SIGHUP：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = kill (<span class="number">1722</span>, SIGHUP);</span><br><span class="line"><span class="keyword">if</span> (ret)</span><br><span class="line">	perror (<span class="string">&quot;kill&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>检测权限：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ret;</span><br><span class="line">ret = kill (<span class="number">1722</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (ret)</span><br><span class="line">	; <span class="comment">/* 没有权限 */</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	; <span class="comment">/* 有权限 */</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-3-给自己发信号"><a href="#9-3-3-给自己发信号" class="headerlink" title="9.3.3 给自己发信号"></a>9.3.3 给自己发信号</h4><p>raise() 是一种简单的进程给自己发送信号的方法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">raise</span> <span class="params">(<span class="type">int</span> signo)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>raise (signo)</code>与<code>kill (getpid (), signo)</code> 等价</p>
+<h4 id="9-3-4-给整个进程发送信号"><a href="#9-3-4-给整个进程发送信号" class="headerlink" title="9.3.4 给整个进程发送信号"></a>9.3.4 给整个进程发送信号</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">killpg</span> <span class="params">(<span class="type">int</span> pgrp, <span class="type">int</span> signo)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>killpg (pgrp, signo)</code>与<code>kill (-pgrp, signo)</code>等价</p>
+<h3 id="9-4-重入"><a href="#9-4-重入" class="headerlink" title="9.4 重入"></a>9.4 重入</h3><p>可重入函数是指可以安全调用自身的函数。</p>
+<p>可重入函数绝不能操作静态数据（全局变量 变量），必须只操作栈分配的数据或者调用者提供的数据。</p>
+<h4 id="9-4-1-有保证的可重入函数"><a href="#9-4-1-有保证的可重入函数" class="headerlink" title="9.4.1 有保证的可重入函数"></a>9.4.1 有保证的可重入函数</h4><p>信号处理函数应只调用可重入函数，确保数据安全操作。</p>
+<h3 id="9-5-信号集"><a href="#9-5-信号集" class="headerlink" title="9.5 信号集"></a>9.5 信号集</h3><p>为了处理信号集，POSIX 定义了以下调用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigemptyset</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigfillset</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigaddset</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>, <span class="type">int</span> signo)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigdelset</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>, <span class="type">int</span> signo)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigismember</span> <span class="params">(<span class="type">const</span> <span class="type">sigset_t</span> *<span class="built_in">set</span>, <span class="type">int</span> signo)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-5-1-更多的信号集函数"><a href="#9-5-1-更多的信号集函数" class="headerlink" title="9.5.1 更多的信号集函数"></a>9.5.1 更多的信号集函数</h4><p>Linux 也提供了一些非标准的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _GNU_SOURCE</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigisemptyset</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigorset</span> <span class="params">(<span class="type">sigset_t</span> *dest, <span class="type">sigset_t</span> *left, <span class="type">sigset_t</span> *right)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sigandset</span> <span class="params">(<span class="type">sigset_t</span> *dest, <span class="type">sigset_t</span> *left, <span class="type">sigset_t</span> *right)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-6-阻塞信号"><a href="#9-6-阻塞信号" class="headerlink" title="9.6 阻塞信号"></a>9.6 阻塞信号</h3><p>临界区：程序中某些部分在运行时不被信号中断。</p>
+<p>阻塞信号：临时挂起信号，以保护临界区。</p>
+<p>被进程阻塞的信号叫做该进程的信号掩码。</p>
+<p>POSIX 定义，Linux 实现了一个管理进程信号掩码的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigprocmask</span> <span class="params">(<span class="type">int</span> how, <span class="type">const</span> <span class="type">sigset_t</span> *<span class="built_in">set</span>, <span class="type">sigset_t</span> *oldset)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>how：SIG_SETMASK、SIG_BLOCK、SIG_UNBLOCK</p>
+<h4 id="9-6-1-获取待处理信号"><a href="#9-6-1-获取待处理信号" class="headerlink" title="9.6.1 获取待处理信号"></a>9.6.1 获取待处理信号</h4><p>获取待处理信号集合：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigpending</span> <span class="params">(<span class="type">sigset_t</span> *<span class="built_in">set</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-6-2-等待信号集"><a href="#9-6-2-等待信号集" class="headerlink" title="9.6.2 等待信号集"></a>9.6.2 等待信号集</h4><p>POSIX 使用 sigsuspend() 允许进程临时改变信号掩码的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigsuspend</span> <span class="params">(<span class="type">const</span> <span class="type">sigset_t</span> *<span class="built_in">set</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-7-高级信号管理"><a href="#9-7-高级信号管理" class="headerlink" title="9.7 高级信号管理"></a>9.7 高级信号管理</h3><p>POSIX 定义了 sigaction() 系统调用，提供更强大的信号管理能力。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigaction</span> <span class="params">(<span class="type">int</span> signo, </span></span><br><span class="line"><span class="params">               <span class="type">const</span> <span class="keyword">struct</span> sigaction *act, </span></span><br><span class="line"><span class="params">               <span class="keyword">struct</span> sigaction *oldact)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>sigaction 结构允许精细地控制信号：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sigaction</span> &#123;</span></span><br><span class="line">    <span class="type">void</span> (*sa_handler)(<span class="type">int</span>); 	<span class="comment">/* 信号处理程序或操作 */</span></span><br><span class="line">    <span class="type">void</span> (*sa_sigaction)(<span class="type">int</span>, <span class="type">siginfo_t</span> *, <span class="type">void</span> *);</span><br><span class="line">    <span class="type">sigset_t</span> sa_mask; 			<span class="comment">/* 阻塞的信号 */</span></span><br><span class="line">    <span class="type">int</span> sa_flags; 				<span class="comment">/* 标志 */</span></span><br><span class="line">    <span class="type">void</span> (*sa_restorer)(<span class="type">void</span>);  <span class="comment">/* 已经过时且不符合 POSIX 标准 */</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>设置 sa_flags 为 SIG_SIGINFO 时，通过 sa_sigaction 指示信号处理函数。</p>
+<p>信号处理程序可以通过 siginfo_t 结构获取丰富信息。</p>
+</blockquote>
+<h4 id="9-7-1-siginfo-t-结构"><a href="#9-7-1-siginfo-t-结构" class="headerlink" title="9.7.1 siginfo_t 结构"></a>9.7.1 siginfo_t 结构</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">siginfo_t</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> si_signo; 		<span class="comment">/* 信号编号 */</span></span><br><span class="line">    <span class="type">int</span> si_errno; 		<span class="comment">/* errno 值 */</span></span><br><span class="line">    <span class="type">int</span> si_code; 		<span class="comment">/* 信号代码 */</span></span><br><span class="line">    <span class="type">pid_t</span> si_pid; 		<span class="comment">/* 发送进程PID */</span></span><br><span class="line">    <span class="type">uid_t</span> si_uid; 		<span class="comment">/* 发送进程的真实UID */</span></span><br><span class="line">    <span class="type">int</span> si_status; 		<span class="comment">/* 退出值或信号 */</span></span><br><span class="line">    <span class="type">clock_t</span> si_utime;	<span class="comment">/* 用户时间消耗 */</span></span><br><span class="line">    <span class="type">clock_t</span> si_stime; 	<span class="comment">/* 系统时间消耗 */</span></span><br><span class="line">    <span class="type">sigval_t</span> si_value; 	<span class="comment">/* 信号载荷值 */</span></span><br><span class="line">    <span class="type">int</span> si_int; 		<span class="comment">/* POSIX.1b 信号*/</span></span><br><span class="line">    <span class="type">void</span> *si_ptr; 		<span class="comment">/* POSIX.1b 信号 */</span></span><br><span class="line">    <span class="type">void</span> *si_addr; 		<span class="comment">/* 造成错误的内存位置 */</span></span><br><span class="line">    <span class="type">int</span> si_band; 		<span class="comment">/* 带事件 */</span></span><br><span class="line">    <span class="type">int</span> si_fd; 			<span class="comment">/* 文件描述符 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-7-2-si-code-的精彩世界"><a href="#9-7-2-si-code-的精彩世界" class="headerlink" title="9.7.2 si_code 的精彩世界"></a>9.7.2 si_code 的精彩世界</h4><p>对于用户发送的信号，该域说明信号是如何被发送的。</p>
+<p>对于内核发送的信号，该域说明信号发生的原因。</p>
+<h3 id="9-8-发送带附加信息的信号"><a href="#9-8-发送带附加信息的信号" class="headerlink" title="9.8 发送带附加信息的信号"></a>9.8 发送带附加信息的信号</h3><p>由 POSIX 定义的 sigqueue() 函数，允许进程发送带附加信息的信号：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sigqueue</span> <span class="params">(<span class="type">pid_t</span> pid,</span></span><br><span class="line"><span class="params">              <span class="type">int</span> signo,</span></span><br><span class="line"><span class="params">              <span class="type">const</span> <span class="keyword">union</span> sigval value)</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-8-1-例子"><a href="#9-8-1-例子" class="headerlink" title="9.8.1 例子"></a>9.8.1 例子</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sigval value;</span><br><span class="line"><span class="type">int</span> ret;</span><br><span class="line">value.sival_int = <span class="number">404</span>;</span><br><span class="line">ret = sigqueue (<span class="number">1722</span>, SIGUSR2, value);</span><br><span class="line"><span class="keyword">if</span> (ret)</span><br><span class="line">	perror (<span class="string">&quot;sigqueue&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-9-结论"><a href="#9-9-结论" class="headerlink" title="9.9 结论"></a>9.9 结论</h3><p>在多线程程序和循环事件中，信号不合适。</p>
+<p>信号的不便之处：</p>
+<ul>
+<li>很难写出一个安全的可重入的信号处理程序。</li>
+<li>程序员仍然使用 signal() 和 kill() 而不是 sigaction() 和 sigqueue() 来管理信号。</li>
+</ul>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by aaaris, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2022/10/24/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%20%E7%AC%AC%E5%85%AB%E7%AB%A0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Linux系统编程 第八章</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/aaaris" class="item">GitHub</a>
+                
+                <a href="2997600742@qq.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2022 aaaris<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
