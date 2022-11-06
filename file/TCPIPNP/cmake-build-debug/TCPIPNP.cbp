@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TCPIPNP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TCPIPNP">
+				<Option output="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/TCPIPNP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 TCPIPNP"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TCPIPNP/fast">
+				<Option output="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/TCPIPNP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 TCPIPNP/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP3/endian_conv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host1.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host2.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_con_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_server.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/EP7/recv_file.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Learning/C++/TCPIPNP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

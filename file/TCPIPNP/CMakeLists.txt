@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.24)
+project(TCPIPNP C)
+
+set(CMAKE_C_STANDARD 11)
+#SET(CUR_DIR ./)
+#foreach(DIR RANGE ${CUR_DIR})
+#    aux_source_directory(SOURCE DIR)
+#endforeach()
+aux_source_directory(./EP1 SOURCE)
+aux_source_directory(./EP2 SOURCE)
+aux_source_directory(./EP3 SOURCE)
+aux_source_directory(./EP4 SOURCE)
+aux_source_directory(./EP5 SOURCE)
+aux_source_directory(./EP6 SOURCE)
+aux_source_directory(./EP7 SOURCE)
+
+add_executable(TCPIPNP ${SOURCE})
