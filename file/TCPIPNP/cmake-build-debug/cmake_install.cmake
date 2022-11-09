@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/Work/Learning/C++/TCPIPNP
+# Install script for directory: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

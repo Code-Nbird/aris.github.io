@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/d/Work/Learning/C++/TCPIPNP
+CMAKE_SOURCE_DIR = /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ TCPIPNP: cmake_check_build_system
 TCPIPNP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/build
 .PHONY : TCPIPNP/fast
+
+EP1/fd_seri.o: EP1/fd_seri.c.o
+.PHONY : EP1/fd_seri.o
+
+# target to build an object file
+EP1/fd_seri.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o
+.PHONY : EP1/fd_seri.c.o
+
+EP1/fd_seri.i: EP1/fd_seri.c.i
+.PHONY : EP1/fd_seri.i
+
+# target to preprocess a source file
+EP1/fd_seri.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.i
+.PHONY : EP1/fd_seri.c.i
+
+EP1/fd_seri.s: EP1/fd_seri.c.s
+.PHONY : EP1/fd_seri.s
+
+# target to generate assembly for a file
+EP1/fd_seri.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.s
+.PHONY : EP1/fd_seri.c.s
 
 EP1/hello_client.o: EP1/hello_client.c.o
 .PHONY : EP1/hello_client.o
@@ -176,6 +200,678 @@ EP1/hello_server.s: EP1/hello_server.c.s
 EP1/hello_server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.s
 .PHONY : EP1/hello_server.c.s
+
+EP1/low_open.o: EP1/low_open.c.o
+.PHONY : EP1/low_open.o
+
+# target to build an object file
+EP1/low_open.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o
+.PHONY : EP1/low_open.c.o
+
+EP1/low_open.i: EP1/low_open.c.i
+.PHONY : EP1/low_open.i
+
+# target to preprocess a source file
+EP1/low_open.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_open.c.i
+.PHONY : EP1/low_open.c.i
+
+EP1/low_open.s: EP1/low_open.c.s
+.PHONY : EP1/low_open.s
+
+# target to generate assembly for a file
+EP1/low_open.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_open.c.s
+.PHONY : EP1/low_open.c.s
+
+EP1/low_read.o: EP1/low_read.c.o
+.PHONY : EP1/low_read.o
+
+# target to build an object file
+EP1/low_read.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o
+.PHONY : EP1/low_read.c.o
+
+EP1/low_read.i: EP1/low_read.c.i
+.PHONY : EP1/low_read.i
+
+# target to preprocess a source file
+EP1/low_read.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_read.c.i
+.PHONY : EP1/low_read.c.i
+
+EP1/low_read.s: EP1/low_read.c.s
+.PHONY : EP1/low_read.s
+
+# target to generate assembly for a file
+EP1/low_read.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP1/low_read.c.s
+.PHONY : EP1/low_read.c.s
+
+EP10/echo_mpclient.o: EP10/echo_mpclient.c.o
+.PHONY : EP10/echo_mpclient.o
+
+# target to build an object file
+EP10/echo_mpclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o
+.PHONY : EP10/echo_mpclient.c.o
+
+EP10/echo_mpclient.i: EP10/echo_mpclient.c.i
+.PHONY : EP10/echo_mpclient.i
+
+# target to preprocess a source file
+EP10/echo_mpclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.i
+.PHONY : EP10/echo_mpclient.c.i
+
+EP10/echo_mpclient.s: EP10/echo_mpclient.c.s
+.PHONY : EP10/echo_mpclient.s
+
+# target to generate assembly for a file
+EP10/echo_mpclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.s
+.PHONY : EP10/echo_mpclient.c.s
+
+EP10/echo_mpserv.o: EP10/echo_mpserv.c.o
+.PHONY : EP10/echo_mpserv.o
+
+# target to build an object file
+EP10/echo_mpserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o
+.PHONY : EP10/echo_mpserv.c.o
+
+EP10/echo_mpserv.i: EP10/echo_mpserv.c.i
+.PHONY : EP10/echo_mpserv.i
+
+# target to preprocess a source file
+EP10/echo_mpserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.i
+.PHONY : EP10/echo_mpserv.c.i
+
+EP10/echo_mpserv.s: EP10/echo_mpserv.c.s
+.PHONY : EP10/echo_mpserv.s
+
+# target to generate assembly for a file
+EP10/echo_mpserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.s
+.PHONY : EP10/echo_mpserv.c.s
+
+EP10/fork.o: EP10/fork.c.o
+.PHONY : EP10/fork.o
+
+# target to build an object file
+EP10/fork.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/fork.c.o
+.PHONY : EP10/fork.c.o
+
+EP10/fork.i: EP10/fork.c.i
+.PHONY : EP10/fork.i
+
+# target to preprocess a source file
+EP10/fork.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/fork.c.i
+.PHONY : EP10/fork.c.i
+
+EP10/fork.s: EP10/fork.c.s
+.PHONY : EP10/fork.s
+
+# target to generate assembly for a file
+EP10/fork.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/fork.c.s
+.PHONY : EP10/fork.c.s
+
+EP10/my_echo_mpserv.o: EP10/my_echo_mpserv.c.o
+.PHONY : EP10/my_echo_mpserv.o
+
+# target to build an object file
+EP10/my_echo_mpserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o
+.PHONY : EP10/my_echo_mpserv.c.o
+
+EP10/my_echo_mpserv.i: EP10/my_echo_mpserv.c.i
+.PHONY : EP10/my_echo_mpserv.i
+
+# target to preprocess a source file
+EP10/my_echo_mpserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.i
+.PHONY : EP10/my_echo_mpserv.c.i
+
+EP10/my_echo_mpserv.s: EP10/my_echo_mpserv.c.s
+.PHONY : EP10/my_echo_mpserv.s
+
+# target to generate assembly for a file
+EP10/my_echo_mpserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.s
+.PHONY : EP10/my_echo_mpserv.c.s
+
+EP10/remove_zombie.o: EP10/remove_zombie.c.o
+.PHONY : EP10/remove_zombie.o
+
+# target to build an object file
+EP10/remove_zombie.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o
+.PHONY : EP10/remove_zombie.c.o
+
+EP10/remove_zombie.i: EP10/remove_zombie.c.i
+.PHONY : EP10/remove_zombie.i
+
+# target to preprocess a source file
+EP10/remove_zombie.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.i
+.PHONY : EP10/remove_zombie.c.i
+
+EP10/remove_zombie.s: EP10/remove_zombie.c.s
+.PHONY : EP10/remove_zombie.s
+
+# target to generate assembly for a file
+EP10/remove_zombie.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.s
+.PHONY : EP10/remove_zombie.c.s
+
+EP10/sigaction.o: EP10/sigaction.c.o
+.PHONY : EP10/sigaction.o
+
+# target to build an object file
+EP10/sigaction.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o
+.PHONY : EP10/sigaction.c.o
+
+EP10/sigaction.i: EP10/sigaction.c.i
+.PHONY : EP10/sigaction.i
+
+# target to preprocess a source file
+EP10/sigaction.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.i
+.PHONY : EP10/sigaction.c.i
+
+EP10/sigaction.s: EP10/sigaction.c.s
+.PHONY : EP10/sigaction.s
+
+# target to generate assembly for a file
+EP10/sigaction.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.s
+.PHONY : EP10/sigaction.c.s
+
+EP10/signal.o: EP10/signal.c.o
+.PHONY : EP10/signal.o
+
+# target to build an object file
+EP10/signal.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/signal.c.o
+.PHONY : EP10/signal.c.o
+
+EP10/signal.i: EP10/signal.c.i
+.PHONY : EP10/signal.i
+
+# target to preprocess a source file
+EP10/signal.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/signal.c.i
+.PHONY : EP10/signal.c.i
+
+EP10/signal.s: EP10/signal.c.s
+.PHONY : EP10/signal.s
+
+# target to generate assembly for a file
+EP10/signal.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/signal.c.s
+.PHONY : EP10/signal.c.s
+
+EP10/wait.o: EP10/wait.c.o
+.PHONY : EP10/wait.o
+
+# target to build an object file
+EP10/wait.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/wait.c.o
+.PHONY : EP10/wait.c.o
+
+EP10/wait.i: EP10/wait.c.i
+.PHONY : EP10/wait.i
+
+# target to preprocess a source file
+EP10/wait.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/wait.c.i
+.PHONY : EP10/wait.c.i
+
+EP10/wait.s: EP10/wait.c.s
+.PHONY : EP10/wait.s
+
+# target to generate assembly for a file
+EP10/wait.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/wait.c.s
+.PHONY : EP10/wait.c.s
+
+EP10/waitpid.o: EP10/waitpid.c.o
+.PHONY : EP10/waitpid.o
+
+# target to build an object file
+EP10/waitpid.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o
+.PHONY : EP10/waitpid.c.o
+
+EP10/waitpid.i: EP10/waitpid.c.i
+.PHONY : EP10/waitpid.i
+
+# target to preprocess a source file
+EP10/waitpid.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.i
+.PHONY : EP10/waitpid.c.i
+
+EP10/waitpid.s: EP10/waitpid.c.s
+.PHONY : EP10/waitpid.s
+
+# target to generate assembly for a file
+EP10/waitpid.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.s
+.PHONY : EP10/waitpid.c.s
+
+EP10/zombie.o: EP10/zombie.c.o
+.PHONY : EP10/zombie.o
+
+# target to build an object file
+EP10/zombie.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o
+.PHONY : EP10/zombie.c.o
+
+EP10/zombie.i: EP10/zombie.c.i
+.PHONY : EP10/zombie.i
+
+# target to preprocess a source file
+EP10/zombie.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/zombie.c.i
+.PHONY : EP10/zombie.c.i
+
+EP10/zombie.s: EP10/zombie.c.s
+.PHONY : EP10/zombie.s
+
+# target to generate assembly for a file
+EP10/zombie.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP10/zombie.c.s
+.PHONY : EP10/zombie.c.s
+
+EP11/echo_storeserv.o: EP11/echo_storeserv.c.o
+.PHONY : EP11/echo_storeserv.o
+
+# target to build an object file
+EP11/echo_storeserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o
+.PHONY : EP11/echo_storeserv.c.o
+
+EP11/echo_storeserv.i: EP11/echo_storeserv.c.i
+.PHONY : EP11/echo_storeserv.i
+
+# target to preprocess a source file
+EP11/echo_storeserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.i
+.PHONY : EP11/echo_storeserv.c.i
+
+EP11/echo_storeserv.s: EP11/echo_storeserv.c.s
+.PHONY : EP11/echo_storeserv.s
+
+# target to generate assembly for a file
+EP11/echo_storeserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.s
+.PHONY : EP11/echo_storeserv.c.s
+
+EP11/pipe1.o: EP11/pipe1.c.o
+.PHONY : EP11/pipe1.o
+
+# target to build an object file
+EP11/pipe1.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o
+.PHONY : EP11/pipe1.c.o
+
+EP11/pipe1.i: EP11/pipe1.c.i
+.PHONY : EP11/pipe1.i
+
+# target to preprocess a source file
+EP11/pipe1.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.i
+.PHONY : EP11/pipe1.c.i
+
+EP11/pipe1.s: EP11/pipe1.c.s
+.PHONY : EP11/pipe1.s
+
+# target to generate assembly for a file
+EP11/pipe1.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.s
+.PHONY : EP11/pipe1.c.s
+
+EP11/pipe2.o: EP11/pipe2.c.o
+.PHONY : EP11/pipe2.o
+
+# target to build an object file
+EP11/pipe2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o
+.PHONY : EP11/pipe2.c.o
+
+EP11/pipe2.i: EP11/pipe2.c.i
+.PHONY : EP11/pipe2.i
+
+# target to preprocess a source file
+EP11/pipe2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.i
+.PHONY : EP11/pipe2.c.i
+
+EP11/pipe2.s: EP11/pipe2.c.s
+.PHONY : EP11/pipe2.s
+
+# target to generate assembly for a file
+EP11/pipe2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.s
+.PHONY : EP11/pipe2.c.s
+
+EP11/pipe3.o: EP11/pipe3.c.o
+.PHONY : EP11/pipe3.o
+
+# target to build an object file
+EP11/pipe3.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o
+.PHONY : EP11/pipe3.c.o
+
+EP11/pipe3.i: EP11/pipe3.c.i
+.PHONY : EP11/pipe3.i
+
+# target to preprocess a source file
+EP11/pipe3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.i
+.PHONY : EP11/pipe3.c.i
+
+EP11/pipe3.s: EP11/pipe3.c.s
+.PHONY : EP11/pipe3.s
+
+# target to generate assembly for a file
+EP11/pipe3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.s
+.PHONY : EP11/pipe3.c.s
+
+EP12/echo_selectserv.o: EP12/echo_selectserv.c.o
+.PHONY : EP12/echo_selectserv.o
+
+# target to build an object file
+EP12/echo_selectserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o
+.PHONY : EP12/echo_selectserv.c.o
+
+EP12/echo_selectserv.i: EP12/echo_selectserv.c.i
+.PHONY : EP12/echo_selectserv.i
+
+# target to preprocess a source file
+EP12/echo_selectserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.i
+.PHONY : EP12/echo_selectserv.c.i
+
+EP12/echo_selectserv.s: EP12/echo_selectserv.c.s
+.PHONY : EP12/echo_selectserv.s
+
+# target to generate assembly for a file
+EP12/echo_selectserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.s
+.PHONY : EP12/echo_selectserv.c.s
+
+EP12/select.o: EP12/select.c.o
+.PHONY : EP12/select.o
+
+# target to build an object file
+EP12/select.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/select.c.o
+.PHONY : EP12/select.c.o
+
+EP12/select.i: EP12/select.c.i
+.PHONY : EP12/select.i
+
+# target to preprocess a source file
+EP12/select.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/select.c.i
+.PHONY : EP12/select.c.i
+
+EP12/select.s: EP12/select.c.s
+.PHONY : EP12/select.s
+
+# target to generate assembly for a file
+EP12/select.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP12/select.c.s
+.PHONY : EP12/select.c.s
+
+EP13/oob_recv.o: EP13/oob_recv.c.o
+.PHONY : EP13/oob_recv.o
+
+# target to build an object file
+EP13/oob_recv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o
+.PHONY : EP13/oob_recv.c.o
+
+EP13/oob_recv.i: EP13/oob_recv.c.i
+.PHONY : EP13/oob_recv.i
+
+# target to preprocess a source file
+EP13/oob_recv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.i
+.PHONY : EP13/oob_recv.c.i
+
+EP13/oob_recv.s: EP13/oob_recv.c.s
+.PHONY : EP13/oob_recv.s
+
+# target to generate assembly for a file
+EP13/oob_recv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.s
+.PHONY : EP13/oob_recv.c.s
+
+EP13/oob_send.o: EP13/oob_send.c.o
+.PHONY : EP13/oob_send.o
+
+# target to build an object file
+EP13/oob_send.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o
+.PHONY : EP13/oob_send.c.o
+
+EP13/oob_send.i: EP13/oob_send.c.i
+.PHONY : EP13/oob_send.i
+
+# target to preprocess a source file
+EP13/oob_send.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.i
+.PHONY : EP13/oob_send.c.i
+
+EP13/oob_send.s: EP13/oob_send.c.s
+.PHONY : EP13/oob_send.s
+
+# target to generate assembly for a file
+EP13/oob_send.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.s
+.PHONY : EP13/oob_send.c.s
+
+EP13/peek_recv.o: EP13/peek_recv.c.o
+.PHONY : EP13/peek_recv.o
+
+# target to build an object file
+EP13/peek_recv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o
+.PHONY : EP13/peek_recv.c.o
+
+EP13/peek_recv.i: EP13/peek_recv.c.i
+.PHONY : EP13/peek_recv.i
+
+# target to preprocess a source file
+EP13/peek_recv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.i
+.PHONY : EP13/peek_recv.c.i
+
+EP13/peek_recv.s: EP13/peek_recv.c.s
+.PHONY : EP13/peek_recv.s
+
+# target to generate assembly for a file
+EP13/peek_recv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.s
+.PHONY : EP13/peek_recv.c.s
+
+EP13/peek_send.o: EP13/peek_send.c.o
+.PHONY : EP13/peek_send.o
+
+# target to build an object file
+EP13/peek_send.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o
+.PHONY : EP13/peek_send.c.o
+
+EP13/peek_send.i: EP13/peek_send.c.i
+.PHONY : EP13/peek_send.i
+
+# target to preprocess a source file
+EP13/peek_send.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.i
+.PHONY : EP13/peek_send.c.i
+
+EP13/peek_send.s: EP13/peek_send.c.s
+.PHONY : EP13/peek_send.s
+
+# target to generate assembly for a file
+EP13/peek_send.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.s
+.PHONY : EP13/peek_send.c.s
+
+EP13/readv.o: EP13/readv.c.o
+.PHONY : EP13/readv.o
+
+# target to build an object file
+EP13/readv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/readv.c.o
+.PHONY : EP13/readv.c.o
+
+EP13/readv.i: EP13/readv.c.i
+.PHONY : EP13/readv.i
+
+# target to preprocess a source file
+EP13/readv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/readv.c.i
+.PHONY : EP13/readv.c.i
+
+EP13/readv.s: EP13/readv.c.s
+.PHONY : EP13/readv.s
+
+# target to generate assembly for a file
+EP13/readv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/readv.c.s
+.PHONY : EP13/readv.c.s
+
+EP13/writev.o: EP13/writev.c.o
+.PHONY : EP13/writev.o
+
+# target to build an object file
+EP13/writev.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/writev.c.o
+.PHONY : EP13/writev.c.o
+
+EP13/writev.i: EP13/writev.c.i
+.PHONY : EP13/writev.i
+
+# target to preprocess a source file
+EP13/writev.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/writev.c.i
+.PHONY : EP13/writev.c.i
+
+EP13/writev.s: EP13/writev.c.s
+.PHONY : EP13/writev.s
+
+# target to generate assembly for a file
+EP13/writev.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP13/writev.c.s
+.PHONY : EP13/writev.c.s
+
+EP14/news_receiver.o: EP14/news_receiver.c.o
+.PHONY : EP14/news_receiver.o
+
+# target to build an object file
+EP14/news_receiver.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o
+.PHONY : EP14/news_receiver.c.o
+
+EP14/news_receiver.i: EP14/news_receiver.c.i
+.PHONY : EP14/news_receiver.i
+
+# target to preprocess a source file
+EP14/news_receiver.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.i
+.PHONY : EP14/news_receiver.c.i
+
+EP14/news_receiver.s: EP14/news_receiver.c.s
+.PHONY : EP14/news_receiver.s
+
+# target to generate assembly for a file
+EP14/news_receiver.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.s
+.PHONY : EP14/news_receiver.c.s
+
+EP14/news_receiver_brd.o: EP14/news_receiver_brd.c.o
+.PHONY : EP14/news_receiver_brd.o
+
+# target to build an object file
+EP14/news_receiver_brd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o
+.PHONY : EP14/news_receiver_brd.c.o
+
+EP14/news_receiver_brd.i: EP14/news_receiver_brd.c.i
+.PHONY : EP14/news_receiver_brd.i
+
+# target to preprocess a source file
+EP14/news_receiver_brd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.i
+.PHONY : EP14/news_receiver_brd.c.i
+
+EP14/news_receiver_brd.s: EP14/news_receiver_brd.c.s
+.PHONY : EP14/news_receiver_brd.s
+
+# target to generate assembly for a file
+EP14/news_receiver_brd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.s
+.PHONY : EP14/news_receiver_brd.c.s
+
+EP14/news_sender.o: EP14/news_sender.c.o
+.PHONY : EP14/news_sender.o
+
+# target to build an object file
+EP14/news_sender.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o
+.PHONY : EP14/news_sender.c.o
+
+EP14/news_sender.i: EP14/news_sender.c.i
+.PHONY : EP14/news_sender.i
+
+# target to preprocess a source file
+EP14/news_sender.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.i
+.PHONY : EP14/news_sender.c.i
+
+EP14/news_sender.s: EP14/news_sender.c.s
+.PHONY : EP14/news_sender.s
+
+# target to generate assembly for a file
+EP14/news_sender.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.s
+.PHONY : EP14/news_sender.c.s
+
+EP14/news_sender_brd.o: EP14/news_sender_brd.c.o
+.PHONY : EP14/news_sender_brd.o
+
+# target to build an object file
+EP14/news_sender_brd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o
+.PHONY : EP14/news_sender_brd.c.o
+
+EP14/news_sender_brd.i: EP14/news_sender_brd.c.i
+.PHONY : EP14/news_sender_brd.i
+
+# target to preprocess a source file
+EP14/news_sender_brd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.i
+.PHONY : EP14/news_sender_brd.c.i
+
+EP14/news_sender_brd.s: EP14/news_sender_brd.c.s
+.PHONY : EP14/news_sender_brd.s
+
+# target to generate assembly for a file
+EP14/news_sender_brd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.s
+.PHONY : EP14/news_sender_brd.c.s
 
 EP2/tcp_client.o: EP2/tcp_client.c.o
 .PHONY : EP2/tcp_client.o
@@ -248,6 +944,78 @@ EP3/endian_conv.s: EP3/endian_conv.c.s
 EP3/endian_conv.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.s
 .PHONY : EP3/endian_conv.c.s
+
+EP3/inet_addr.o: EP3/inet_addr.c.o
+.PHONY : EP3/inet_addr.o
+
+# target to build an object file
+EP3/inet_addr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o
+.PHONY : EP3/inet_addr.c.o
+
+EP3/inet_addr.i: EP3/inet_addr.c.i
+.PHONY : EP3/inet_addr.i
+
+# target to preprocess a source file
+EP3/inet_addr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.i
+.PHONY : EP3/inet_addr.c.i
+
+EP3/inet_addr.s: EP3/inet_addr.c.s
+.PHONY : EP3/inet_addr.s
+
+# target to generate assembly for a file
+EP3/inet_addr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.s
+.PHONY : EP3/inet_addr.c.s
+
+EP3/inet_aton.o: EP3/inet_aton.c.o
+.PHONY : EP3/inet_aton.o
+
+# target to build an object file
+EP3/inet_aton.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o
+.PHONY : EP3/inet_aton.c.o
+
+EP3/inet_aton.i: EP3/inet_aton.c.i
+.PHONY : EP3/inet_aton.i
+
+# target to preprocess a source file
+EP3/inet_aton.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.i
+.PHONY : EP3/inet_aton.c.i
+
+EP3/inet_aton.s: EP3/inet_aton.c.s
+.PHONY : EP3/inet_aton.s
+
+# target to generate assembly for a file
+EP3/inet_aton.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.s
+.PHONY : EP3/inet_aton.c.s
+
+EP3/inet_ntoa.o: EP3/inet_ntoa.c.o
+.PHONY : EP3/inet_ntoa.o
+
+# target to build an object file
+EP3/inet_ntoa.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o
+.PHONY : EP3/inet_ntoa.c.o
+
+EP3/inet_ntoa.i: EP3/inet_ntoa.c.i
+.PHONY : EP3/inet_ntoa.i
+
+# target to preprocess a source file
+EP3/inet_ntoa.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.i
+.PHONY : EP3/inet_ntoa.c.i
+
+EP3/inet_ntoa.s: EP3/inet_ntoa.c.s
+.PHONY : EP3/inet_ntoa.s
+
+# target to generate assembly for a file
+EP3/inet_ntoa.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.s
+.PHONY : EP3/inet_ntoa.c.s
 
 EP4/echo_client.o: EP4/echo_client.c.o
 .PHONY : EP4/echo_client.o
@@ -633,6 +1401,150 @@ EP7/recv_file.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.s
 .PHONY : EP7/recv_file.c.s
 
+EP8/gethostbyaddr.o: EP8/gethostbyaddr.c.o
+.PHONY : EP8/gethostbyaddr.o
+
+# target to build an object file
+EP8/gethostbyaddr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o
+.PHONY : EP8/gethostbyaddr.c.o
+
+EP8/gethostbyaddr.i: EP8/gethostbyaddr.c.i
+.PHONY : EP8/gethostbyaddr.i
+
+# target to preprocess a source file
+EP8/gethostbyaddr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.i
+.PHONY : EP8/gethostbyaddr.c.i
+
+EP8/gethostbyaddr.s: EP8/gethostbyaddr.c.s
+.PHONY : EP8/gethostbyaddr.s
+
+# target to generate assembly for a file
+EP8/gethostbyaddr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.s
+.PHONY : EP8/gethostbyaddr.c.s
+
+EP8/gethostbyname.o: EP8/gethostbyname.c.o
+.PHONY : EP8/gethostbyname.o
+
+# target to build an object file
+EP8/gethostbyname.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o
+.PHONY : EP8/gethostbyname.c.o
+
+EP8/gethostbyname.i: EP8/gethostbyname.c.i
+.PHONY : EP8/gethostbyname.i
+
+# target to preprocess a source file
+EP8/gethostbyname.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.i
+.PHONY : EP8/gethostbyname.c.i
+
+EP8/gethostbyname.s: EP8/gethostbyname.c.s
+.PHONY : EP8/gethostbyname.s
+
+# target to generate assembly for a file
+EP8/gethostbyname.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.s
+.PHONY : EP8/gethostbyname.c.s
+
+EP9/get_buf.o: EP9/get_buf.c.o
+.PHONY : EP9/get_buf.o
+
+# target to build an object file
+EP9/get_buf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o
+.PHONY : EP9/get_buf.c.o
+
+EP9/get_buf.i: EP9/get_buf.c.i
+.PHONY : EP9/get_buf.i
+
+# target to preprocess a source file
+EP9/get_buf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.i
+.PHONY : EP9/get_buf.c.i
+
+EP9/get_buf.s: EP9/get_buf.c.s
+.PHONY : EP9/get_buf.s
+
+# target to generate assembly for a file
+EP9/get_buf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.s
+.PHONY : EP9/get_buf.c.s
+
+EP9/reuseadr_eclient.o: EP9/reuseadr_eclient.c.o
+.PHONY : EP9/reuseadr_eclient.o
+
+# target to build an object file
+EP9/reuseadr_eclient.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o
+.PHONY : EP9/reuseadr_eclient.c.o
+
+EP9/reuseadr_eclient.i: EP9/reuseadr_eclient.c.i
+.PHONY : EP9/reuseadr_eclient.i
+
+# target to preprocess a source file
+EP9/reuseadr_eclient.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.i
+.PHONY : EP9/reuseadr_eclient.c.i
+
+EP9/reuseadr_eclient.s: EP9/reuseadr_eclient.c.s
+.PHONY : EP9/reuseadr_eclient.s
+
+# target to generate assembly for a file
+EP9/reuseadr_eclient.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.s
+.PHONY : EP9/reuseadr_eclient.c.s
+
+EP9/set_buf.o: EP9/set_buf.c.o
+.PHONY : EP9/set_buf.o
+
+# target to build an object file
+EP9/set_buf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o
+.PHONY : EP9/set_buf.c.o
+
+EP9/set_buf.i: EP9/set_buf.c.i
+.PHONY : EP9/set_buf.i
+
+# target to preprocess a source file
+EP9/set_buf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.i
+.PHONY : EP9/set_buf.c.i
+
+EP9/set_buf.s: EP9/set_buf.c.s
+.PHONY : EP9/set_buf.s
+
+# target to generate assembly for a file
+EP9/set_buf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.s
+.PHONY : EP9/set_buf.c.s
+
+EP9/sock_type.o: EP9/sock_type.c.o
+.PHONY : EP9/sock_type.o
+
+# target to build an object file
+EP9/sock_type.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o
+.PHONY : EP9/sock_type.c.o
+
+EP9/sock_type.i: EP9/sock_type.c.i
+.PHONY : EP9/sock_type.i
+
+# target to preprocess a source file
+EP9/sock_type.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.i
+.PHONY : EP9/sock_type.c.i
+
+EP9/sock_type.s: EP9/sock_type.c.s
+.PHONY : EP9/sock_type.s
+
+# target to generate assembly for a file
+EP9/sock_type.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.s
+.PHONY : EP9/sock_type.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -642,12 +1554,99 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... TCPIPNP"
+	@echo "... EP1/fd_seri.o"
+	@echo "... EP1/fd_seri.i"
+	@echo "... EP1/fd_seri.s"
 	@echo "... EP1/hello_client.o"
 	@echo "... EP1/hello_client.i"
 	@echo "... EP1/hello_client.s"
 	@echo "... EP1/hello_server.o"
 	@echo "... EP1/hello_server.i"
 	@echo "... EP1/hello_server.s"
+	@echo "... EP1/low_open.o"
+	@echo "... EP1/low_open.i"
+	@echo "... EP1/low_open.s"
+	@echo "... EP1/low_read.o"
+	@echo "... EP1/low_read.i"
+	@echo "... EP1/low_read.s"
+	@echo "... EP10/echo_mpclient.o"
+	@echo "... EP10/echo_mpclient.i"
+	@echo "... EP10/echo_mpclient.s"
+	@echo "... EP10/echo_mpserv.o"
+	@echo "... EP10/echo_mpserv.i"
+	@echo "... EP10/echo_mpserv.s"
+	@echo "... EP10/fork.o"
+	@echo "... EP10/fork.i"
+	@echo "... EP10/fork.s"
+	@echo "... EP10/my_echo_mpserv.o"
+	@echo "... EP10/my_echo_mpserv.i"
+	@echo "... EP10/my_echo_mpserv.s"
+	@echo "... EP10/remove_zombie.o"
+	@echo "... EP10/remove_zombie.i"
+	@echo "... EP10/remove_zombie.s"
+	@echo "... EP10/sigaction.o"
+	@echo "... EP10/sigaction.i"
+	@echo "... EP10/sigaction.s"
+	@echo "... EP10/signal.o"
+	@echo "... EP10/signal.i"
+	@echo "... EP10/signal.s"
+	@echo "... EP10/wait.o"
+	@echo "... EP10/wait.i"
+	@echo "... EP10/wait.s"
+	@echo "... EP10/waitpid.o"
+	@echo "... EP10/waitpid.i"
+	@echo "... EP10/waitpid.s"
+	@echo "... EP10/zombie.o"
+	@echo "... EP10/zombie.i"
+	@echo "... EP10/zombie.s"
+	@echo "... EP11/echo_storeserv.o"
+	@echo "... EP11/echo_storeserv.i"
+	@echo "... EP11/echo_storeserv.s"
+	@echo "... EP11/pipe1.o"
+	@echo "... EP11/pipe1.i"
+	@echo "... EP11/pipe1.s"
+	@echo "... EP11/pipe2.o"
+	@echo "... EP11/pipe2.i"
+	@echo "... EP11/pipe2.s"
+	@echo "... EP11/pipe3.o"
+	@echo "... EP11/pipe3.i"
+	@echo "... EP11/pipe3.s"
+	@echo "... EP12/echo_selectserv.o"
+	@echo "... EP12/echo_selectserv.i"
+	@echo "... EP12/echo_selectserv.s"
+	@echo "... EP12/select.o"
+	@echo "... EP12/select.i"
+	@echo "... EP12/select.s"
+	@echo "... EP13/oob_recv.o"
+	@echo "... EP13/oob_recv.i"
+	@echo "... EP13/oob_recv.s"
+	@echo "... EP13/oob_send.o"
+	@echo "... EP13/oob_send.i"
+	@echo "... EP13/oob_send.s"
+	@echo "... EP13/peek_recv.o"
+	@echo "... EP13/peek_recv.i"
+	@echo "... EP13/peek_recv.s"
+	@echo "... EP13/peek_send.o"
+	@echo "... EP13/peek_send.i"
+	@echo "... EP13/peek_send.s"
+	@echo "... EP13/readv.o"
+	@echo "... EP13/readv.i"
+	@echo "... EP13/readv.s"
+	@echo "... EP13/writev.o"
+	@echo "... EP13/writev.i"
+	@echo "... EP13/writev.s"
+	@echo "... EP14/news_receiver.o"
+	@echo "... EP14/news_receiver.i"
+	@echo "... EP14/news_receiver.s"
+	@echo "... EP14/news_receiver_brd.o"
+	@echo "... EP14/news_receiver_brd.i"
+	@echo "... EP14/news_receiver_brd.s"
+	@echo "... EP14/news_sender.o"
+	@echo "... EP14/news_sender.i"
+	@echo "... EP14/news_sender.s"
+	@echo "... EP14/news_sender_brd.o"
+	@echo "... EP14/news_sender_brd.i"
+	@echo "... EP14/news_sender_brd.s"
 	@echo "... EP2/tcp_client.o"
 	@echo "... EP2/tcp_client.i"
 	@echo "... EP2/tcp_client.s"
@@ -657,6 +1656,15 @@ help:
 	@echo "... EP3/endian_conv.o"
 	@echo "... EP3/endian_conv.i"
 	@echo "... EP3/endian_conv.s"
+	@echo "... EP3/inet_addr.o"
+	@echo "... EP3/inet_addr.i"
+	@echo "... EP3/inet_addr.s"
+	@echo "... EP3/inet_aton.o"
+	@echo "... EP3/inet_aton.i"
+	@echo "... EP3/inet_aton.s"
+	@echo "... EP3/inet_ntoa.o"
+	@echo "... EP3/inet_ntoa.i"
+	@echo "... EP3/inet_ntoa.s"
 	@echo "... EP4/echo_client.o"
 	@echo "... EP4/echo_client.i"
 	@echo "... EP4/echo_client.s"
@@ -705,6 +1713,24 @@ help:
 	@echo "... EP7/recv_file.o"
 	@echo "... EP7/recv_file.i"
 	@echo "... EP7/recv_file.s"
+	@echo "... EP8/gethostbyaddr.o"
+	@echo "... EP8/gethostbyaddr.i"
+	@echo "... EP8/gethostbyaddr.s"
+	@echo "... EP8/gethostbyname.o"
+	@echo "... EP8/gethostbyname.i"
+	@echo "... EP8/gethostbyname.s"
+	@echo "... EP9/get_buf.o"
+	@echo "... EP9/get_buf.i"
+	@echo "... EP9/get_buf.s"
+	@echo "... EP9/reuseadr_eclient.o"
+	@echo "... EP9/reuseadr_eclient.i"
+	@echo "... EP9/reuseadr_eclient.s"
+	@echo "... EP9/set_buf.o"
+	@echo "... EP9/set_buf.i"
+	@echo "... EP9/set_buf.s"
+	@echo "... EP9/sock_type.o"
+	@echo "... EP9/sock_type.i"
+	@echo "... EP9/sock_type.s"
 .PHONY : help
 
 

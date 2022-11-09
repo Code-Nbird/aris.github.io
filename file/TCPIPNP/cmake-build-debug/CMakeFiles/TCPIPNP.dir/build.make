@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/d/Work/Learning/C++/TCPIPNP
+CMAKE_SOURCE_DIR = /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TCPIPNP.dir/depend.make
@@ -69,307 +69,845 @@ include CMakeFiles/TCPIPNP.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TCPIPNP.dir/flags.make
 
+CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/fd_seri.c
+CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/fd_seri.c
+
+CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/fd_seri.c > CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.i
+
+CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/fd_seri.c -o CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.s
+
 CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_client.c
+CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_client.c
 CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_client.c
 
 CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_client.c > CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_client.c > CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_client.c -o CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_client.c -o CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_server.c
+CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_server.c
 CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_server.c
 
 CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_server.c > CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_server.c > CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP1/hello_server.c -o CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/hello_server.c -o CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.s
+
+CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_open.c
+CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_open.c
+
+CMakeFiles/TCPIPNP.dir/EP1/low_open.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP1/low_open.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_open.c > CMakeFiles/TCPIPNP.dir/EP1/low_open.c.i
+
+CMakeFiles/TCPIPNP.dir/EP1/low_open.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP1/low_open.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_open.c -o CMakeFiles/TCPIPNP.dir/EP1/low_open.c.s
+
+CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_read.c
+CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o -MF CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o.d -o CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_read.c
+
+CMakeFiles/TCPIPNP.dir/EP1/low_read.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP1/low_read.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_read.c > CMakeFiles/TCPIPNP.dir/EP1/low_read.c.i
+
+CMakeFiles/TCPIPNP.dir/EP1/low_read.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP1/low_read.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP1/low_read.c -o CMakeFiles/TCPIPNP.dir/EP1/low_read.c.s
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_client.c
+CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_client.c
 CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_client.c
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_client.c > CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_client.c > CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_client.c -o CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_client.c -o CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_server.c
+CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_server.c
 CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_server.c
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_server.c > CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_server.c > CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP2/tcp_server.c -o CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_server.c -o CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP3/endian_conv.c
+CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/endian_conv.c
 CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o -MF CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP3/endian_conv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o -MF CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/endian_conv.c
 
 CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP3/endian_conv.c > CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/endian_conv.c > CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.i
 
 CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP3/endian_conv.c -o CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/endian_conv.c -o CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_addr.c
+CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o -MF CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o.d -o CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_addr.c
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_addr.c > CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.i
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_addr.c -o CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.s
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_aton.c
+CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o -MF CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o.d -o CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_aton.c
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_aton.c > CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.i
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_aton.c -o CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.s
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_ntoa.c
+CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o -MF CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o.d -o CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_ntoa.c
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_ntoa.c > CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.i
+
+CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP3/inet_ntoa.c -o CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.s
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_client.c
+CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client.c
 CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client.c
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_client.c > CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client.c > CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_client.c -o CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client.c -o CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_server.c
+CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_server.c
 CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_server.c
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_server.c > CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_server.c > CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP4/echo_server.c -o CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_server.c -o CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_client.c
+CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_client.c
 CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_client.c
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_client.c > CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_client.c > CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_client.c -o CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_client.c -o CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_server.c
+CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_server.c
 CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_server.c
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_server.c > CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_server.c > CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP5/my_op_server.c -o CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/my_op_server.c -o CMakeFiles/TCPIPNP.dir/EP5/my_op_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_client.c
+CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_client.c
 CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/op_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_client.c
 
 CMakeFiles/TCPIPNP.dir/EP5/op_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP5/op_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_client.c > CMakeFiles/TCPIPNP.dir/EP5/op_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_client.c > CMakeFiles/TCPIPNP.dir/EP5/op_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP5/op_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP5/op_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_client.c -o CMakeFiles/TCPIPNP.dir/EP5/op_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_client.c -o CMakeFiles/TCPIPNP.dir/EP5/op_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_server.c
+CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_server.c
 CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP5/op_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_server.c
 
 CMakeFiles/TCPIPNP.dir/EP5/op_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP5/op_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_server.c > CMakeFiles/TCPIPNP.dir/EP5/op_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_server.c > CMakeFiles/TCPIPNP.dir/EP5/op_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP5/op_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP5/op_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP5/op_server.c -o CMakeFiles/TCPIPNP.dir/EP5/op_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP5/op_server.c -o CMakeFiles/TCPIPNP.dir/EP5/op_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host1.c
+CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host1.c
 CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host1.c
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host1.c > CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host1.c > CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.i
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host1.c -o CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host1.c -o CMakeFiles/TCPIPNP.dir/EP6/bound_host1.c.s
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host2.c
+CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host2.c
 CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host2.c
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host2.c > CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host2.c > CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.i
 
 CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP6/bound_host2.c -o CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/bound_host2.c -o CMakeFiles/TCPIPNP.dir/EP6/bound_host2.c.s
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_client.c
+CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_client.c
 CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_client.c
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_client.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_client.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_client.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_client.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_con_client.c
+CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_con_client.c
 CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_con_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_con_client.c
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_con_client.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_con_client.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_con_client.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_con_client.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_con_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_server.c
+CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_server.c
 CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_server.c
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_server.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_server.c > CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP6/uecho_server.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP6/uecho_server.c -o CMakeFiles/TCPIPNP.dir/EP6/uecho_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_client.c
+CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_client.c
 CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/file_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_client.c
 
 CMakeFiles/TCPIPNP.dir/EP7/file_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP7/file_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_client.c > CMakeFiles/TCPIPNP.dir/EP7/file_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_client.c > CMakeFiles/TCPIPNP.dir/EP7/file_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP7/file_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP7/file_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_client.c -o CMakeFiles/TCPIPNP.dir/EP7/file_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_client.c -o CMakeFiles/TCPIPNP.dir/EP7/file_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_server.c
+CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_server.c
 CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_server.c
 
 CMakeFiles/TCPIPNP.dir/EP7/file_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP7/file_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_server.c > CMakeFiles/TCPIPNP.dir/EP7/file_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_server.c > CMakeFiles/TCPIPNP.dir/EP7/file_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP7/file_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP7/file_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP7/file_server.c -o CMakeFiles/TCPIPNP.dir/EP7/file_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/file_server.c -o CMakeFiles/TCPIPNP.dir/EP7/file_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_client.c
+CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_client.c
 CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_client.c
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_client.c > CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_client.c > CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.i
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_client.c -o CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_client.c -o CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.s
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_server.c
+CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_server.c
 CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_server.c
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_server.c > CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_server.c > CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.i
 
 CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP7/my_file_server.c -o CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/my_file_server.c -o CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.s
 
 CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o: CMakeFiles/TCPIPNP.dir/flags.make
-CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o: /mnt/d/Work/Learning/C++/TCPIPNP/EP7/recv_file.c
+CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/recv_file.c
 CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o -c /mnt/d/Work/Learning/C++/TCPIPNP/EP7/recv_file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o -MF CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o.d -o CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/recv_file.c
 
 CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Learning/C++/TCPIPNP/EP7/recv_file.c > CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/recv_file.c > CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.i
 
 CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Learning/C++/TCPIPNP/EP7/recv_file.c -o CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP7/recv_file.c -o CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.s
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyaddr.c
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o -MF CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o.d -o CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyaddr.c
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyaddr.c > CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.i
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyaddr.c -o CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.s
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyname.c
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o -MF CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o.d -o CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyname.c
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyname.c > CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.i
+
+CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP8/gethostbyname.c -o CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.s
+
+CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/get_buf.c
+CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o -MF CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o.d -o CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/get_buf.c
+
+CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/get_buf.c > CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.i
+
+CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/get_buf.c -o CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.s
+
+CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/reuseadr_eclient.c
+CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o -MF CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o.d -o CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/reuseadr_eclient.c
+
+CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/reuseadr_eclient.c > CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.i
+
+CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/reuseadr_eclient.c -o CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.s
+
+CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/set_buf.c
+CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o -MF CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o.d -o CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/set_buf.c
+
+CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/set_buf.c > CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.i
+
+CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/set_buf.c -o CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.s
+
+CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/sock_type.c
+CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o -MF CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o.d -o CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/sock_type.c
+
+CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/sock_type.c > CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.i
+
+CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP9/sock_type.c -o CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpclient.c
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpclient.c
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpclient.c > CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpclient.c -o CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpserv.c
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpserv.c
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpserv.c > CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/echo_mpserv.c -o CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/fork.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/fork.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/fork.c
+CMakeFiles/TCPIPNP.dir/EP10/fork.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/TCPIPNP.dir/EP10/fork.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/fork.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/fork.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/fork.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/fork.c
+
+CMakeFiles/TCPIPNP.dir/EP10/fork.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/fork.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/fork.c > CMakeFiles/TCPIPNP.dir/EP10/fork.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/fork.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/fork.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/fork.c -o CMakeFiles/TCPIPNP.dir/EP10/fork.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/my_echo_mpserv.c
+CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/my_echo_mpserv.c
+
+CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/my_echo_mpserv.c > CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/my_echo_mpserv.c -o CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/remove_zombie.c
+CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/remove_zombie.c
+
+CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/remove_zombie.c > CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/remove_zombie.c -o CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/sigaction.c
+CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/sigaction.c
+
+CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/sigaction.c > CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/sigaction.c -o CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/signal.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/signal.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/signal.c
+CMakeFiles/TCPIPNP.dir/EP10/signal.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/TCPIPNP.dir/EP10/signal.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/signal.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/signal.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/signal.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/signal.c
+
+CMakeFiles/TCPIPNP.dir/EP10/signal.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/signal.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/signal.c > CMakeFiles/TCPIPNP.dir/EP10/signal.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/signal.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/signal.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/signal.c -o CMakeFiles/TCPIPNP.dir/EP10/signal.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/wait.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/wait.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/wait.c
+CMakeFiles/TCPIPNP.dir/EP10/wait.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/TCPIPNP.dir/EP10/wait.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/wait.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/wait.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/wait.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/wait.c
+
+CMakeFiles/TCPIPNP.dir/EP10/wait.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/wait.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/wait.c > CMakeFiles/TCPIPNP.dir/EP10/wait.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/wait.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/wait.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/wait.c -o CMakeFiles/TCPIPNP.dir/EP10/wait.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/waitpid.c
+CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/waitpid.c
+
+CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/waitpid.c > CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/waitpid.c -o CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.s
+
+CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/zombie.c
+CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o -MF CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o.d -o CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/zombie.c
+
+CMakeFiles/TCPIPNP.dir/EP10/zombie.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP10/zombie.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/zombie.c > CMakeFiles/TCPIPNP.dir/EP10/zombie.c.i
+
+CMakeFiles/TCPIPNP.dir/EP10/zombie.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP10/zombie.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP10/zombie.c -o CMakeFiles/TCPIPNP.dir/EP10/zombie.c.s
+
+CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/echo_storeserv.c
+CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o -MF CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/echo_storeserv.c
+
+CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/echo_storeserv.c > CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/echo_storeserv.c -o CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe1.c
+CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o -MF CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o.d -o CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe1.c
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe1.c > CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.i
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe1.c -o CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.s
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe2.c
+CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o -MF CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o.d -o CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe2.c
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe2.c > CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.i
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe2.c -o CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.s
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe3.c
+CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o -MF CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o.d -o CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe3.c
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe3.c > CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.i
+
+CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP11/pipe3.c -o CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.s
+
+CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/echo_selectserv.c
+CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o -MF CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/echo_selectserv.c
+
+CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/echo_selectserv.c > CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/echo_selectserv.c -o CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP12/select.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP12/select.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/select.c
+CMakeFiles/TCPIPNP.dir/EP12/select.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/TCPIPNP.dir/EP12/select.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP12/select.c.o -MF CMakeFiles/TCPIPNP.dir/EP12/select.c.o.d -o CMakeFiles/TCPIPNP.dir/EP12/select.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/select.c
+
+CMakeFiles/TCPIPNP.dir/EP12/select.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP12/select.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/select.c > CMakeFiles/TCPIPNP.dir/EP12/select.c.i
+
+CMakeFiles/TCPIPNP.dir/EP12/select.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP12/select.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP12/select.c -o CMakeFiles/TCPIPNP.dir/EP12/select.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_recv.c
+CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_recv.c
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_recv.c > CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_recv.c -o CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_send.c
+CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_send.c
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_send.c > CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/oob_send.c -o CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_recv.c
+CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_recv.c
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_recv.c > CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_recv.c -o CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_send.c
+CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_send.c
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_send.c > CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/peek_send.c -o CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/readv.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/readv.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/readv.c
+CMakeFiles/TCPIPNP.dir/EP13/readv.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/TCPIPNP.dir/EP13/readv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/readv.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/readv.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/readv.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/readv.c
+
+CMakeFiles/TCPIPNP.dir/EP13/readv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/readv.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/readv.c > CMakeFiles/TCPIPNP.dir/EP13/readv.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/readv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/readv.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/readv.c -o CMakeFiles/TCPIPNP.dir/EP13/readv.c.s
+
+CMakeFiles/TCPIPNP.dir/EP13/writev.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP13/writev.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/writev.c
+CMakeFiles/TCPIPNP.dir/EP13/writev.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/TCPIPNP.dir/EP13/writev.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP13/writev.c.o -MF CMakeFiles/TCPIPNP.dir/EP13/writev.c.o.d -o CMakeFiles/TCPIPNP.dir/EP13/writev.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/writev.c
+
+CMakeFiles/TCPIPNP.dir/EP13/writev.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP13/writev.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/writev.c > CMakeFiles/TCPIPNP.dir/EP13/writev.c.i
+
+CMakeFiles/TCPIPNP.dir/EP13/writev.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP13/writev.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP13/writev.c -o CMakeFiles/TCPIPNP.dir/EP13/writev.c.s
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver.c
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o -MF CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o.d -o CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver.c
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver.c > CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.i
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver.c -o CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.s
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver_brd.c
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o -MF CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o.d -o CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver_brd.c
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver_brd.c > CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.i
+
+CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_receiver_brd.c -o CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.s
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender.c
+CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o -MF CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o.d -o CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender.c
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender.c > CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.i
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender.c -o CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.s
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o: CMakeFiles/TCPIPNP.dir/flags.make
+CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o: /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender_brd.c
+CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o: CMakeFiles/TCPIPNP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o -MF CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o.d -o CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o -c /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender_brd.c
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender_brd.c > CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.i
+
+CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender_brd.c -o CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.s
 
 # Object files for target TCPIPNP
 TCPIPNP_OBJECTS = \
+"CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o" \
@@ -385,16 +923,54 @@ TCPIPNP_OBJECTS = \
 "CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o" \
 "CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o" \
-"CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o"
+"CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/fork.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/signal.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/wait.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP12/select.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/readv.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP13/writev.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o" \
+"CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o"
 
 # External object files for target TCPIPNP
 TCPIPNP_EXTERNAL_OBJECTS =
 
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP1/fd_seri.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP1/hello_client.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP1/hello_server.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP1/low_open.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP1/low_read.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP2/tcp_client.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP2/tcp_server.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP3/endian_conv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP3/inet_addr.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP3/inet_aton.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP3/inet_ntoa.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP4/echo_server.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP5/my_op_client.c.o
@@ -411,9 +987,41 @@ TCPIPNP: CMakeFiles/TCPIPNP.dir/EP7/file_server.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP7/my_file_client.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP7/my_file_server.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/EP7/recv_file.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP8/gethostbyaddr.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP8/gethostbyname.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP9/get_buf.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP9/reuseadr_eclient.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP9/set_buf.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP9/sock_type.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/echo_mpclient.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/echo_mpserv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/fork.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/my_echo_mpserv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/remove_zombie.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/sigaction.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/signal.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/wait.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/waitpid.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP10/zombie.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP11/echo_storeserv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP11/pipe1.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP11/pipe2.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP11/pipe3.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP12/echo_selectserv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP12/select.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/oob_recv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/oob_send.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/peek_recv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/peek_send.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/readv.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP13/writev.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP14/news_receiver.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP14/news_receiver_brd.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP14/news_sender.c.o
+TCPIPNP: CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.o
 TCPIPNP: CMakeFiles/TCPIPNP.dir/build.make
 TCPIPNP: CMakeFiles/TCPIPNP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C executable TCPIPNP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Linking C executable TCPIPNP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TCPIPNP.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -425,6 +1033,6 @@ CMakeFiles/TCPIPNP.dir/clean:
 .PHONY : CMakeFiles/TCPIPNP.dir/clean
 
 CMakeFiles/TCPIPNP.dir/depend:
-	cd /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/d/Work/Learning/C++/TCPIPNP /mnt/d/Work/Learning/C++/TCPIPNP /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug /mnt/d/Work/Learning/C++/TCPIPNP/cmake-build-debug/CMakeFiles/TCPIPNP.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug /mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/cmake-build-debug/CMakeFiles/TCPIPNP.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/TCPIPNP.dir/depend
 
