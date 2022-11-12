@@ -873,6 +873,390 @@ EP14/news_sender_brd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP14/news_sender_brd.c.s
 .PHONY : EP14/news_sender_brd.c.s
 
+EP15/desto.o: EP15/desto.c.o
+.PHONY : EP15/desto.o
+
+# target to build an object file
+EP15/desto.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/desto.c.o
+.PHONY : EP15/desto.c.o
+
+EP15/desto.i: EP15/desto.c.i
+.PHONY : EP15/desto.i
+
+# target to preprocess a source file
+EP15/desto.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/desto.c.i
+.PHONY : EP15/desto.c.i
+
+EP15/desto.s: EP15/desto.c.s
+.PHONY : EP15/desto.s
+
+# target to generate assembly for a file
+EP15/desto.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/desto.c.s
+.PHONY : EP15/desto.c.s
+
+EP15/echo_stdclnt.o: EP15/echo_stdclnt.c.o
+.PHONY : EP15/echo_stdclnt.o
+
+# target to build an object file
+EP15/echo_stdclnt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdclnt.c.o
+.PHONY : EP15/echo_stdclnt.c.o
+
+EP15/echo_stdclnt.i: EP15/echo_stdclnt.c.i
+.PHONY : EP15/echo_stdclnt.i
+
+# target to preprocess a source file
+EP15/echo_stdclnt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdclnt.c.i
+.PHONY : EP15/echo_stdclnt.c.i
+
+EP15/echo_stdclnt.s: EP15/echo_stdclnt.c.s
+.PHONY : EP15/echo_stdclnt.s
+
+# target to generate assembly for a file
+EP15/echo_stdclnt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdclnt.c.s
+.PHONY : EP15/echo_stdclnt.c.s
+
+EP15/echo_stdserv.o: EP15/echo_stdserv.c.o
+.PHONY : EP15/echo_stdserv.o
+
+# target to build an object file
+EP15/echo_stdserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdserv.c.o
+.PHONY : EP15/echo_stdserv.c.o
+
+EP15/echo_stdserv.i: EP15/echo_stdserv.c.i
+.PHONY : EP15/echo_stdserv.i
+
+# target to preprocess a source file
+EP15/echo_stdserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdserv.c.i
+.PHONY : EP15/echo_stdserv.c.i
+
+EP15/echo_stdserv.s: EP15/echo_stdserv.c.s
+.PHONY : EP15/echo_stdserv.s
+
+# target to generate assembly for a file
+EP15/echo_stdserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/echo_stdserv.c.s
+.PHONY : EP15/echo_stdserv.c.s
+
+EP15/stdcpy.o: EP15/stdcpy.c.o
+.PHONY : EP15/stdcpy.o
+
+# target to build an object file
+EP15/stdcpy.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/stdcpy.c.o
+.PHONY : EP15/stdcpy.c.o
+
+EP15/stdcpy.i: EP15/stdcpy.c.i
+.PHONY : EP15/stdcpy.i
+
+# target to preprocess a source file
+EP15/stdcpy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/stdcpy.c.i
+.PHONY : EP15/stdcpy.c.i
+
+EP15/stdcpy.s: EP15/stdcpy.c.s
+.PHONY : EP15/stdcpy.s
+
+# target to generate assembly for a file
+EP15/stdcpy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/stdcpy.c.s
+.PHONY : EP15/stdcpy.c.s
+
+EP15/syscpy.o: EP15/syscpy.c.o
+.PHONY : EP15/syscpy.o
+
+# target to build an object file
+EP15/syscpy.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/syscpy.c.o
+.PHONY : EP15/syscpy.c.o
+
+EP15/syscpy.i: EP15/syscpy.c.i
+.PHONY : EP15/syscpy.i
+
+# target to preprocess a source file
+EP15/syscpy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/syscpy.c.i
+.PHONY : EP15/syscpy.c.i
+
+EP15/syscpy.s: EP15/syscpy.c.s
+.PHONY : EP15/syscpy.s
+
+# target to generate assembly for a file
+EP15/syscpy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/syscpy.c.s
+.PHONY : EP15/syscpy.c.s
+
+EP15/todes.o: EP15/todes.c.o
+.PHONY : EP15/todes.o
+
+# target to build an object file
+EP15/todes.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/todes.c.o
+.PHONY : EP15/todes.c.o
+
+EP15/todes.i: EP15/todes.c.i
+.PHONY : EP15/todes.i
+
+# target to preprocess a source file
+EP15/todes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/todes.c.i
+.PHONY : EP15/todes.c.i
+
+EP15/todes.s: EP15/todes.c.s
+.PHONY : EP15/todes.s
+
+# target to generate assembly for a file
+EP15/todes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP15/todes.c.s
+.PHONY : EP15/todes.c.s
+
+EP16/dup.o: EP16/dup.c.o
+.PHONY : EP16/dup.o
+
+# target to build an object file
+EP16/dup.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/dup.c.o
+.PHONY : EP16/dup.c.o
+
+EP16/dup.i: EP16/dup.c.i
+.PHONY : EP16/dup.i
+
+# target to preprocess a source file
+EP16/dup.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/dup.c.i
+.PHONY : EP16/dup.c.i
+
+EP16/dup.s: EP16/dup.c.s
+.PHONY : EP16/dup.s
+
+# target to generate assembly for a file
+EP16/dup.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/dup.c.s
+.PHONY : EP16/dup.c.s
+
+EP16/sep_clnt.o: EP16/sep_clnt.c.o
+.PHONY : EP16/sep_clnt.o
+
+# target to build an object file
+EP16/sep_clnt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_clnt.c.o
+.PHONY : EP16/sep_clnt.c.o
+
+EP16/sep_clnt.i: EP16/sep_clnt.c.i
+.PHONY : EP16/sep_clnt.i
+
+# target to preprocess a source file
+EP16/sep_clnt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_clnt.c.i
+.PHONY : EP16/sep_clnt.c.i
+
+EP16/sep_clnt.s: EP16/sep_clnt.c.s
+.PHONY : EP16/sep_clnt.s
+
+# target to generate assembly for a file
+EP16/sep_clnt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_clnt.c.s
+.PHONY : EP16/sep_clnt.c.s
+
+EP16/sep_serv.o: EP16/sep_serv.c.o
+.PHONY : EP16/sep_serv.o
+
+# target to build an object file
+EP16/sep_serv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv.c.o
+.PHONY : EP16/sep_serv.c.o
+
+EP16/sep_serv.i: EP16/sep_serv.c.i
+.PHONY : EP16/sep_serv.i
+
+# target to preprocess a source file
+EP16/sep_serv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv.c.i
+.PHONY : EP16/sep_serv.c.i
+
+EP16/sep_serv.s: EP16/sep_serv.c.s
+.PHONY : EP16/sep_serv.s
+
+# target to generate assembly for a file
+EP16/sep_serv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv.c.s
+.PHONY : EP16/sep_serv.c.s
+
+EP16/sep_serv2.o: EP16/sep_serv2.c.o
+.PHONY : EP16/sep_serv2.o
+
+# target to build an object file
+EP16/sep_serv2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv2.c.o
+.PHONY : EP16/sep_serv2.c.o
+
+EP16/sep_serv2.i: EP16/sep_serv2.c.i
+.PHONY : EP16/sep_serv2.i
+
+# target to preprocess a source file
+EP16/sep_serv2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv2.c.i
+.PHONY : EP16/sep_serv2.c.i
+
+EP16/sep_serv2.s: EP16/sep_serv2.c.s
+.PHONY : EP16/sep_serv2.s
+
+# target to generate assembly for a file
+EP16/sep_serv2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP16/sep_serv2.c.s
+.PHONY : EP16/sep_serv2.c.s
+
+EP17/chat_clnt.o: EP17/chat_clnt.c.o
+.PHONY : EP17/chat_clnt.o
+
+# target to build an object file
+EP17/chat_clnt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_clnt.c.o
+.PHONY : EP17/chat_clnt.c.o
+
+EP17/chat_clnt.i: EP17/chat_clnt.c.i
+.PHONY : EP17/chat_clnt.i
+
+# target to preprocess a source file
+EP17/chat_clnt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_clnt.c.i
+.PHONY : EP17/chat_clnt.c.i
+
+EP17/chat_clnt.s: EP17/chat_clnt.c.s
+.PHONY : EP17/chat_clnt.s
+
+# target to generate assembly for a file
+EP17/chat_clnt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_clnt.c.s
+.PHONY : EP17/chat_clnt.c.s
+
+EP17/chat_serv.o: EP17/chat_serv.c.o
+.PHONY : EP17/chat_serv.o
+
+# target to build an object file
+EP17/chat_serv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_serv.c.o
+.PHONY : EP17/chat_serv.c.o
+
+EP17/chat_serv.i: EP17/chat_serv.c.i
+.PHONY : EP17/chat_serv.i
+
+# target to preprocess a source file
+EP17/chat_serv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_serv.c.i
+.PHONY : EP17/chat_serv.c.i
+
+EP17/chat_serv.s: EP17/chat_serv.c.s
+.PHONY : EP17/chat_serv.s
+
+# target to generate assembly for a file
+EP17/chat_serv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/chat_serv.c.s
+.PHONY : EP17/chat_serv.c.s
+
+EP17/echo_EPETserv.o: EP17/echo_EPETserv.c.o
+.PHONY : EP17/echo_EPETserv.o
+
+# target to build an object file
+EP17/echo_EPETserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPETserv.c.o
+.PHONY : EP17/echo_EPETserv.c.o
+
+EP17/echo_EPETserv.i: EP17/echo_EPETserv.c.i
+.PHONY : EP17/echo_EPETserv.i
+
+# target to preprocess a source file
+EP17/echo_EPETserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPETserv.c.i
+.PHONY : EP17/echo_EPETserv.c.i
+
+EP17/echo_EPETserv.s: EP17/echo_EPETserv.c.s
+.PHONY : EP17/echo_EPETserv.s
+
+# target to generate assembly for a file
+EP17/echo_EPETserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPETserv.c.s
+.PHONY : EP17/echo_EPETserv.c.s
+
+EP17/echo_EPLTserv.o: EP17/echo_EPLTserv.c.o
+.PHONY : EP17/echo_EPLTserv.o
+
+# target to build an object file
+EP17/echo_EPLTserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPLTserv.c.o
+.PHONY : EP17/echo_EPLTserv.c.o
+
+EP17/echo_EPLTserv.i: EP17/echo_EPLTserv.c.i
+.PHONY : EP17/echo_EPLTserv.i
+
+# target to preprocess a source file
+EP17/echo_EPLTserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPLTserv.c.i
+.PHONY : EP17/echo_EPLTserv.c.i
+
+EP17/echo_EPLTserv.s: EP17/echo_EPLTserv.c.s
+.PHONY : EP17/echo_EPLTserv.s
+
+# target to generate assembly for a file
+EP17/echo_EPLTserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_EPLTserv.c.s
+.PHONY : EP17/echo_EPLTserv.c.s
+
+EP17/echo_epollserv.o: EP17/echo_epollserv.c.o
+.PHONY : EP17/echo_epollserv.o
+
+# target to build an object file
+EP17/echo_epollserv.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_epollserv.c.o
+.PHONY : EP17/echo_epollserv.c.o
+
+EP17/echo_epollserv.i: EP17/echo_epollserv.c.i
+.PHONY : EP17/echo_epollserv.i
+
+# target to preprocess a source file
+EP17/echo_epollserv.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_epollserv.c.i
+.PHONY : EP17/echo_epollserv.c.i
+
+EP17/echo_epollserv.s: EP17/echo_epollserv.c.s
+.PHONY : EP17/echo_epollserv.s
+
+# target to generate assembly for a file
+EP17/echo_epollserv.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP17/echo_epollserv.c.s
+.PHONY : EP17/echo_epollserv.c.s
+
+EP18/chat_clnt.o: EP18/chat_clnt.c.o
+.PHONY : EP18/chat_clnt.o
+
+# target to build an object file
+EP18/chat_clnt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP18/chat_clnt.c.o
+.PHONY : EP18/chat_clnt.c.o
+
+EP18/chat_clnt.i: EP18/chat_clnt.c.i
+.PHONY : EP18/chat_clnt.i
+
+# target to preprocess a source file
+EP18/chat_clnt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP18/chat_clnt.c.i
+.PHONY : EP18/chat_clnt.c.i
+
+EP18/chat_clnt.s: EP18/chat_clnt.c.s
+.PHONY : EP18/chat_clnt.s
+
+# target to generate assembly for a file
+EP18/chat_clnt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP18/chat_clnt.c.s
+.PHONY : EP18/chat_clnt.c.s
+
 EP2/tcp_client.o: EP2/tcp_client.c.o
 .PHONY : EP2/tcp_client.o
 
@@ -1040,6 +1424,30 @@ EP4/echo_client.s: EP4/echo_client.c.s
 EP4/echo_client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP4/echo_client.c.s
 .PHONY : EP4/echo_client.c.s
+
+EP4/echo_client2.o: EP4/echo_client2.c.o
+.PHONY : EP4/echo_client2.o
+
+# target to build an object file
+EP4/echo_client2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP4/echo_client2.c.o
+.PHONY : EP4/echo_client2.c.o
+
+EP4/echo_client2.i: EP4/echo_client2.c.i
+.PHONY : EP4/echo_client2.i
+
+# target to preprocess a source file
+EP4/echo_client2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP4/echo_client2.c.i
+.PHONY : EP4/echo_client2.c.i
+
+EP4/echo_client2.s: EP4/echo_client2.c.s
+.PHONY : EP4/echo_client2.s
+
+# target to generate assembly for a file
+EP4/echo_client2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPIPNP.dir/build.make CMakeFiles/TCPIPNP.dir/EP4/echo_client2.c.s
+.PHONY : EP4/echo_client2.c.s
 
 EP4/echo_server.o: EP4/echo_server.c.o
 .PHONY : EP4/echo_server.o
@@ -1647,6 +2055,54 @@ help:
 	@echo "... EP14/news_sender_brd.o"
 	@echo "... EP14/news_sender_brd.i"
 	@echo "... EP14/news_sender_brd.s"
+	@echo "... EP15/desto.o"
+	@echo "... EP15/desto.i"
+	@echo "... EP15/desto.s"
+	@echo "... EP15/echo_stdclnt.o"
+	@echo "... EP15/echo_stdclnt.i"
+	@echo "... EP15/echo_stdclnt.s"
+	@echo "... EP15/echo_stdserv.o"
+	@echo "... EP15/echo_stdserv.i"
+	@echo "... EP15/echo_stdserv.s"
+	@echo "... EP15/stdcpy.o"
+	@echo "... EP15/stdcpy.i"
+	@echo "... EP15/stdcpy.s"
+	@echo "... EP15/syscpy.o"
+	@echo "... EP15/syscpy.i"
+	@echo "... EP15/syscpy.s"
+	@echo "... EP15/todes.o"
+	@echo "... EP15/todes.i"
+	@echo "... EP15/todes.s"
+	@echo "... EP16/dup.o"
+	@echo "... EP16/dup.i"
+	@echo "... EP16/dup.s"
+	@echo "... EP16/sep_clnt.o"
+	@echo "... EP16/sep_clnt.i"
+	@echo "... EP16/sep_clnt.s"
+	@echo "... EP16/sep_serv.o"
+	@echo "... EP16/sep_serv.i"
+	@echo "... EP16/sep_serv.s"
+	@echo "... EP16/sep_serv2.o"
+	@echo "... EP16/sep_serv2.i"
+	@echo "... EP16/sep_serv2.s"
+	@echo "... EP17/chat_clnt.o"
+	@echo "... EP17/chat_clnt.i"
+	@echo "... EP17/chat_clnt.s"
+	@echo "... EP17/chat_serv.o"
+	@echo "... EP17/chat_serv.i"
+	@echo "... EP17/chat_serv.s"
+	@echo "... EP17/echo_EPETserv.o"
+	@echo "... EP17/echo_EPETserv.i"
+	@echo "... EP17/echo_EPETserv.s"
+	@echo "... EP17/echo_EPLTserv.o"
+	@echo "... EP17/echo_EPLTserv.i"
+	@echo "... EP17/echo_EPLTserv.s"
+	@echo "... EP17/echo_epollserv.o"
+	@echo "... EP17/echo_epollserv.i"
+	@echo "... EP17/echo_epollserv.s"
+	@echo "... EP18/chat_clnt.o"
+	@echo "... EP18/chat_clnt.i"
+	@echo "... EP18/chat_clnt.s"
 	@echo "... EP2/tcp_client.o"
 	@echo "... EP2/tcp_client.i"
 	@echo "... EP2/tcp_client.s"
@@ -1668,6 +2124,9 @@ help:
 	@echo "... EP4/echo_client.o"
 	@echo "... EP4/echo_client.i"
 	@echo "... EP4/echo_client.s"
+	@echo "... EP4/echo_client2.o"
+	@echo "... EP4/echo_client2.i"
+	@echo "... EP4/echo_client2.s"
 	@echo "... EP4/echo_server.o"
 	@echo "... EP4/echo_server.i"
 	@echo "... EP4/echo_server.s"

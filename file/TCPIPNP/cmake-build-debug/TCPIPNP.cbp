@@ -171,6 +171,54 @@
 		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP14/news_sender_brd.c">
 			<Option target="TCPIPNP"/>
 		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/desto.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/echo_stdclnt.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/echo_stdserv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/stdcpy.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/syscpy.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP15/todes.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP16/dup.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP16/sep_clnt.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP16/sep_serv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP16/sep_serv2.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP17/chat_clnt.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP17/chat_serv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP17/echo_EPETserv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP17/echo_EPLTserv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP17/echo_epollserv.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP18/chat_clnt.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
 		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP2/tcp_client.c">
 			<Option target="TCPIPNP"/>
 		</Unit>
@@ -190,6 +238,9 @@
 			<Option target="TCPIPNP"/>
 		</Unit>
 		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client.c">
+			<Option target="TCPIPNP"/>
+		</Unit>
+		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_client2.c">
 			<Option target="TCPIPNP"/>
 		</Unit>
 		<Unit filename="/mnt/d/Work/Project/blog/myblog/source/file/TCPIPNP/EP4/echo_server.c">
